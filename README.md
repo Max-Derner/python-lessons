@@ -13,17 +13,4 @@
 ```
 
 # Content
-Versions
-Installing
-PIP & "Venvs"
-VSCode setup
-Linting, Quality, & Security
-"Hello World!"
-
-Data types
-Functions
-Classes
-Functional programming
-Built-ins
-
-Running code
+[Lesson 1](./Lesson_1/01_versions.md)
