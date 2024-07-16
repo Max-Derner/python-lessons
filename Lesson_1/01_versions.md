@@ -11,6 +11,8 @@ Ok, let's break it down. So, if I type `python3 --version` I get back `Python 3.
 **12** is the minor version, this is what we're really looking for when talking about Python versions. If you ask someone what Python version they're using they'll typically say something like "three nine", meaning Python3.9. Minor versions are not wholly compatible but worry not as I've got some tips [a little further down the page](#how-will-i-know-what-breaks-between-versions).  
 **4** is the patch version. No one really pays attention to the patch version because it doesn't impact the coding experience as it's security updates. You want the most recent patch versions you can get and should have no concerns regarding compatibility when moving just the patch version.
 
+If you're starting a new project, you can pretty safely just take whatever is the most recent version of Python. If you starting on a established project, make sure you match major and minor versions with the pipelines and infrastructure, then take whatever is the newest patch version you can get.
+
 # Semantics
 Righty, Python does **not** follow semantic versioning. [Semantic versioning](https://semver.org/) would mean that the only breaking changes occur across major versions, this is not the case with Python. In Python, breaking changes can happen across minor version increments (i.e. something that runs on the 3.8 runtime might break when you try to run it on the 3.9 runtime). Patch versions are wholly compatible, as they only contain security fixes (i.e. code running on the 3.8.3 runtime, is entirely compatible with the 3.8.9 runtime, and vice versa).
 
