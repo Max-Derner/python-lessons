@@ -5,9 +5,14 @@ __     __            _
   \ V /  __/ |  \__ \ | (_) | | | \__ \
    \_/ \___|_|  |___/_|\___/|_| |_|___/
 ```
+# What version of Python should I use?
+Ok, let's break it down. So, if I type `python3 --version` I get back `Python 3.12.4`.  
+**3** is the major version, we only have the one right now. Python2 has been unsupported for around a quarter of a century as I write this, so definitely stick to Python3 as you're extremely unlikely to encounter anything else.  
+**12** is the minor version, this is what we're really looking for when talking about Python versions. If you ask someone what Python version they're using they'll typically say something like "three nine", meaning Python3.9. Minor versions are not wholly compatible but worry not as I've got some tips [a little further down the page](#how-will-i-know-what-breaks-between-versions).  
+**4** is the patch version. No one really pays attention to the patch version because it doesn't impact the coding experience as it's security updates. You want the most recent patch versions you can get and should have no concerns regarding compatibility when moving just the patch version.
 
 # Semantics
-First off, Python does **not** follow semantic versioning. Semantic versioning would mean that the only breaking changes occur across major versions, this is not the case with Python. In Python, breaking changes can happen across minor version increments (i.e. something that runs on the 3.8 runtime might break when you try to run it on the 3.9 runtime). Patch versions are wholly compatible, as they only contain security fixes (i.e. code running on the 3.8.3 runtime, is entirely compatible with the 3.8.9 runtime, and vice versa).
+Righty, Python does **not** follow semantic versioning. [Semantic versioning](https://semver.org/) would mean that the only breaking changes occur across major versions, this is not the case with Python. In Python, breaking changes can happen across minor version increments (i.e. something that runs on the 3.8 runtime might break when you try to run it on the 3.9 runtime). Patch versions are wholly compatible, as they only contain security fixes (i.e. code running on the 3.8.3 runtime, is entirely compatible with the 3.8.9 runtime, and vice versa).
 
 Python 3.8 was the last Python runtime to not be released on a yearly schedule, now we get a new minor release every year just in time for Christmas. Each minor release is then supported for 5 years.  
 As I write this Python 3.8 is about to lose support this October, take a look at what is supported during what periods [here](https://devguide.python.org/versions/).
