@@ -13,12 +13,23 @@ You're a professional, you need to understand things on a deep level. Before we 
 The first lesson is everything in one way. The rest are one thing in everyway.  
 
 So we'll go over the bare minimum for:
-* environment set-up
-* variables
-* functions
-* classes
-* loops
+* installing Python/Python installation verification
+* IDE set-up
+* virtual environments
+* installing libraries
 * running code
+* variables
+* logical expressions
+* comments
+* input/output
+* maths n stuff
+* logic flow
+* loops
+* functions
+* but **not** classes 
+    * I don't want you to start your Python journey spending all your time making classes, just use Python intuitively and come to appreciate the ability to do hacky rapid prototyping
 
-This will provide us a very rough understanding which we can build on in future lessons.  
+Then we're going to do a somewhat daunting challenge just to prove how clever you are.  
+
+This will provide us a very rough understanding that serves as a framework to slot extra in depth context into on our journey to professional competence.  
 ### [Let's get started!](./01_set_up.md)
