@@ -10,7 +10,7 @@
 
 You're a professional, you need to understand things on a deep level. Before we can learn things in a very thorough manner, we first need a broad understanding that can provide a framework to fit knowledge into.  
 
-The first lesson is everything in one way. The rest are one thing in everyway.  
+This zeroth lesson is everything in one way. The rest are one thing in everyway.  
 
 So we'll go over the bare minimum for:
 * installing Python/Python installation verification
