@@ -18,4 +18,4 @@ This isn't aimed at someone who's never done any coding, or someone who already 
 
 
 # Content
-[Lesson 1](./Lesson_1/00_lesson_intro.md) (Getting set up)
+[**Lesson 00**](./Lesson_00/00_lesson_intro.md): Getting a base of knowledge going that we can build on

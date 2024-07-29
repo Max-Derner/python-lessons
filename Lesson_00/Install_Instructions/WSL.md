@@ -1,3 +1,4 @@
+[<- go back](../01_set_up.md)
 # Installing Python on WSL
 Congratulations for using my favourite work set-up! Getting set up on WSL is nice and easy.  
 
@@ -7,7 +8,7 @@ Congratulations for using my favourite work set-up! Getting set up on WSL is nic
     * `sudo apt install software-properties-common`
 1. Add the "deadsnakes" repo to APT:
     * `sudo add-apt-repository ppa:deadsnakes/ppa`
-1. Update known packages again, now you have a whole new repo:
+1. Update known packages again, seeing as you have a whole new repo to update:
     * `sudo apt update`
 1. Install your chosen Python version:
     * `sudo apt install python3.12`

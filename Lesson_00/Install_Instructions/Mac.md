@@ -1,3 +1,4 @@
+[<- go back](../01_set_up.md)
 # Installing Python on Mac
 Ok, you're using a Mac. I think homebrew gives a nice experience with installing stuff but I know other people who use Pyenv. I'm going to give one instruction set only.  
 
