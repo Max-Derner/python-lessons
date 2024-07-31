@@ -10,7 +10,9 @@ Variable names follow `snake_case`
 Constants are in `SCREAMING_SNAKE_CASE`  
 Privates have a `_leading_underscore`  
 
-**N.B.** The Python interpreter could not care less about what's private or constant and will glady like you import a private variable from wherever and change a constant. This naming convention is just for IDEs and devs, so the whole thing operates on scouts honour.
+| **WARNING** |
+|-------------|
+| The Python interpreter could not care less about what's private or constant and will glady like you import a private variable from wherever and change a constant. This naming convention is just for IDEs and devs, so the whole thing operates on scouts honour. |
 
 # Quick Note on the Typing System
 Python is dynamically typed and strongly typed. So, variables can change types willy-nilly (dynamic) but using an incompatible type will throw an error (strong).  
