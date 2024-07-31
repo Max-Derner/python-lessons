@@ -8,7 +8,13 @@ __     __         _       _     _
 # Naming Variables
 Variable names follow `snake_case`  
 Constants are in `SCREAMING_SNAKE_CASE`  
-Privates have a `_leading_underscore`
+Privates have a `_leading_underscore`  
+
+**N.B.** The Python interpreter could not care less about what's private or constant and will glady like you import a private variable from wherever and change a constant. This naming convention is just for IDEs and devs, so the whole thing operates on scouts honour.
+
+# Quick Note on the Typing System
+Python is dynamically typed and strongly typed. So, variables can change types willy-nilly (dynamic) but using an incompatible type will throw an error (strong).  
+We don't have to declare types, but we can do type hinting though - again - the interpreter doesn't give a damn about type hints, they're just for IDEs and devs.
 
 # Booleans
 You've got `bool`.  
@@ -49,73 +55,87 @@ Declare it by assigning something between quotes:
 ```
 my_str = "Hello World!"
 ```
-You can access individual characters with `my_str[2]` but cannot assign values in this way (i.e. `my_str[2] = 'd'` doesn't work)
+
+
+| need | command | note |
+|------|---------|------|
+| access character at index | `my_str[index]` | cannot be used to change value |
+| discern if substring in str | `substring in my_str` | returns either `True` or `False` **AND** substring can be any length including 0 or 1 |
+| concatenate 2 strings | `str1 + str2` | returns new string |
+| | `str1 += str2` | modifies `str1` |
 
 
 # Collections
-_QUICK NOTE:_ Any of the objects under this section (and strings as it happens) can have their length checked by passing them into the `len()` function.  
-_SECOND QUICK NOTE:_ These objects can't be copied with `my_copy = your_copy`, it has to be `my_copy = your_copy.copy()` but this is only a shallow copy, deep copies will come in a later lesson.  
+_**QUICK NOTE:**_ Any of the objects under this section (and strings as it happens) can have their length checked by passing them into the `len()` function.  
+_**SECOND QUICK NOTE:**_ These objects can't be copied with `my_copy = your_copy`, it has to be `my_copy = your_copy.copy()` but this is only a shallow copy, deep copies will come in a later lesson.  
 
 
-## Key-Value Pairs `dict`
+## Key-Value Pairs (`dict`)
 We call them `dict`ionaries, you might call them dictionaries, hash-maps, hash-tables.  
 Declare it by assigning some comma separated key-value pairs between braces, a key must be separated from a value by a colon:
 ```
-my_dict = {'key': 'value', 'a': 1, 1: 'one'}
+my_dict = {'key': 'value', 'a': 1, 1: 'one'}  # filled
+my_dict = {}  # empty
 ```
+| need | command | note |
+|------|---------|------|
+| access value | `my_dict[key]` | throws error when key doesn't exist |
+| | `my_dict.get(key)` | returns `None` if key doesn't exist **OR** is key does exist but value is `None` |
+| change value **OR** assign new key-pair | `my_dict[key] = value`|
+| merge dictionaries | `dict1 \| dict2` | returns new dict **AND** if key exists in both, value from dict2 takes priority **N.B.** only available in Python3.10 or higher |
+|| `{**dict1, **dict2}` | returns new dict **AND** same key priority as above **AND** available regardless of version |
+|| `dict1.update(dict2)` | returns `None` just updates `dict1` **AND** same key priority as above **AND** available regardless of version |
+| remove key-pair | `del my_dict[key]` | |
+| list keys | `my_dict.keys()`| does not return actual `list` object but mostly acts the same |
+| list values | `my_dict.values()`| does not return actual `list` object but mostly acts the same |
+| discern if key in dict | `key in my_dict` | returns either `True` or `False` |
+
+### Additional notes
 Dictionaries don't have a fixed length, and can contain any mix of types for both keys and values.  
-Keys must be unique.  
-Access a value with `my_dict['key']`.  
-Check if a key exists with `my_key in my_dict` (expression returns True if it exists in dict)  
-Add a value with `my_dict['new_key'] = 'new value'` (if `'new_key'` already exists in the dictionary, then you will overwrite the previous value)  
-To remove a key-pair from a dictionary it's `del my_dict['key to delete']`  
-To get a list of keys it's `my_dict.keys()` and a list of values is `my_dict.values()`.  
+Keys must be unique and hashable, to check if something is hashable just pop it into the `hash()` function (e.g. `hash('HASH ME!')`).  
 
-
-## Value only with duplicates `list`
+## Value only, duplicates allowed (`list`)
 There's only `list`, no arrays, no vectors.  
 Declare it by assigning some comma separated values between square brackets:
 ```
-my_list = [1, 2, 'c', 'd']
+my_list = [1, 2, 'c', 'd']  # filled
+my_list = []  # empty
 ```
+| need | command | note |
+|------|---------|------|
+| access index | `my_list[index]` | can be negatively indexed to access values from other end (i.e. `my_list[-1]` returns last value, `my_list[-2]` returns penultimate value, etc) |
+| add to list | `my_list.append(value)` | |
+| merge lists | `[*list1, *list2]` | returns new list |
+||`list1.extend(list2)` | modifies list1 |
+| remove index | `del my_list[index]` ||
+| remove value | `my_list.remove(value)` | Only removes first instance of value **AND** throws error if value not present |
+| sort list | `my_list.sort()` | sorts in place |
+| reverse list | `my_list.reverse()` | reverses in place |
+| discern if value in list | `value in my_list` | returns either `True` or `False` |
+
+### Additional notes
 Lists don't have a fixed length, and can contain any mix of types.  
-Access individual elements with `my_list[3]` and assign them the same way.  
-Add to a list with `my_list.append(my_int)`  
-Remove an element at a specific index with `del my_list[3]`  
-If you only know the value, you can remove that element with `my_list.remove(stored_value)` if there are multiple instances of this value it will only remove the first.  
-Sort lists with `my_list.sort()` (this mutates the list itself, it doesn't return anything)  
-Reverse a list with `my_list.reverse()` (this also mutates the list itself and doesn't return anything)  
 
 
-## Value only without duplicates `set`
+## Value only, no duplicates (`set`)
 We call this a `set`.  
 Declare it by assigning some comma separated values between braces:
 ```
-my_set = {1, 2, 'c', 'd'}
+my_set = {1, 2, 'c', 'd'}  # filled
+my_set = set()  # empty, remember {} is empty dict
 ```
+| need | command | note |
+|------|---------|------|
+| add value | `my_set.add(value)` | |
+| remove value | `my_set.discard(value)` | doesn't throw error if value not present |
+| discern if value in set | `value in my_set` | Returns either `True` or `False` |
+
+### Additional notes
 Sets don't have a fixed length, and can contain a mix of types (so long as their hashable but we'll get to that later).  
 Sets don't maintain order, so you can't access a specific element.  
-Add to a set with `my_set.add(my_int)`  
-Check if something is in a set with `my_int in my_set` (expression returns True if it exists in set)  
-Remove something from a set with `my_set.discard(my_int)`
-
-
-## Immutable value only with duplicates `tuple`
-We call this a `tuple`.  
-Declare it by assigning some comma separated values between parentheses:
-```
-my_tuple = (1, 'two', 3)
-```
-Tuples can contain any mix of types.  
-You can't add to, or remove from a tuple because it's immutable.  
-You can access a specific element with `my_tuple[2]`.  
-Check if something is in a tuple with `my_int in my_tuple` (expression returns True if it exists in tuple)  
-
-They might seem a little bloody useless, but I promise they enable some cool stuff that we'll get to later.
 
 # Truthy/Falsy
 There are truthy/falsy values in Python. Everything is truthy unless it's; zero, None, False, or empty.
-
 
 # That's it?
 Yeah, for now.

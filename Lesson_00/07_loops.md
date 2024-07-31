@@ -36,8 +36,7 @@ for i in range(5, 10):
     # i begins at 5 and ends at 9
 
 for i in range(0, 10, 2):
-    # i starts at 0 and ends at 9, BUT it takes steps of 2
-    # so we only get even numbers and never actually see 9
+    # i starts at 0 and ends at 9, BUT it takes steps of 2 so we only get even numbers
 ```
 
 Now, for loops are often used to do something x number of times but you don't actually care about the value of i.  

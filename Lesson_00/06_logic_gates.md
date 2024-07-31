@@ -22,7 +22,8 @@ else:
     # do a different thing
 ```
 The expressions are anything that can be evaluated as "truthy/falsy".  
-Notice that we're using the 4 spaces of indentation to define scope.
+Notice that we're using the 4 spaces of indentation to define scope.  
+Also notice that we don't use `{}` to define scope, that's done with an indented code block like it is everywhere else in Python.
 
 Example:
 ```

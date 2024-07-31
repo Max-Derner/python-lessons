@@ -43,46 +43,9 @@ So, right there our equals has been replaced with an equals and an operator smus
 
 _NOTE:_ We don't have increment and decrement operators, so you can't do a++, ++a, --a, or a--.
 
-# String Operations
-## substring in string
-To check if a string contains a substring you do it with the following expression:
-```
-substring in string
-```
-Example:
-```
-substring = "Hell"
-string = "Hello World!"
-substring_is_in_string = substring in string
-```
-The variable `substring_is_in_string` is now a `bool` with the value `True`.
 
-Want to check a substring isn't in the string?
-```
-substring = "Heaven"
-string = "Hello World!"
-substring_is_not_in_string = substring not in string  # notice we just changed "in" for "not in"
-```
-Nice and simple
-## concatenation
-To smush two strings together, you simply add them like so:
-```
-part_a = "Hell"
-part_b = "o World!"
-complete = part_a + part_b
-```
-The variable `complete` now has a value of `Hello World!`.
 
-This also applies to the `+=` operator:
-```
-iteratively_built_string = ''
-iteratively_built_string += "Hell"
-iteratively_built_string += "o World!"
-```
-The variable `iteratively_built_string` now has a value of `Hello World!`.  
-You don't have to initially declare it as an empty string, I just like to because it makes later changing the order easier as git blame won't get confused.
-
-# Logical Operations
+# Boolean Operations
 Let's not get too bogged down here...  
 Most of it is obvious but you'll still need to see the syntax:
 ```
@@ -90,7 +53,7 @@ thing or other_thing
 thing and other_thing
 not thing
 ```
-So we don't have `!` or `&&` or `||` or `&` or `|`, we just use the English words `not`, `or`, and `and`. There are bitwise operators but that's something for another time.  
+So we don't have `!` or `&&` or `||` or `&` or `|`, we just use the English words `not`, `or`, and `and`. Some of those are bitwise operators but that's something for another time.  
 
 Example:
 ```
