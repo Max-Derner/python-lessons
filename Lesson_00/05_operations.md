@@ -53,17 +53,14 @@ thing or other_thing
 thing and other_thing
 not thing
 ```
-So we don't have `!` or `&&` or `||` or `&` or `|`, we just use the English words `not`, `or`, and `and`. Some of those are bitwise operators but that's something for another time.  
+So we don't have `!` or `&&` or `||` or `&` or `|`, we just use the English words `not`, `or`, and `and`.   
 
 Example:
 ```
-fave_char = 'b'
-string_1 = 'abc'
-string_2 = 'xyz'
 
-fave_char in string_1 or fave_char in string_2  # evaluates as True
-fave_char in string_1 and fave_char in string_2  # evaluates as False
-fave_char in string_1 and fave_char not in string_2  # evaluates as True
+True or False  # evaluates as True
+True and False  # evaluates as False
+not False  # evaluates as True
 
 ```
 
@@ -71,11 +68,10 @@ fave_char in string_1 and fave_char not in string_2  # evaluates as True
 
 Broadly speaking, you use double equals, like this:
 ```
-some_list == []  # this evaluates to True if "some_list" is empty
+some_list == []  # this evaluates to True if "some_list" is am empty list
 ```
 There are occasions where you should use the keyword `is` instead of `==`. This is when you want to assert that they are the same object.  
-In Python, there is one `True`, one `False`, and one `None`.  
-So if you're testing for equality to one of these values, you need to use the `is` keyword. So you'll end up with expressions like:  
+In Python, there is one `True`, one `False`, and one `None`. So if you're testing for equality to one of those values, you need to use the `is` keyword. So you'll end up with expressions like:  
 ```
 something is True
 something_else is None
@@ -87,7 +83,7 @@ For values, it's:
 thing_1 != thing_2
 ```
 
-For checking it's exact same object, like when you [copy a list wrong (check the "second quick note")](./02_variables.md#collections) go for:  
+For checking it's not the exact same object, like when you [copy a list wrong (check the "_**SECOND QUICK NOTE:**_")](./02_variables.md#collections) go for:  
 ```
 my_copy is not your_copy
 ```

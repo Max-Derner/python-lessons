@@ -19,6 +19,11 @@ Want to pass in arguments?
 def my_really_cool_function(a, b, c):
     # some code that does something with the variables a, b, and c
 ```
+Want a default value?
+```
+def my_func(a='default value'):  # 
+    # some stuff
+```
 
 Want to return something?
 Use the keyword `return`

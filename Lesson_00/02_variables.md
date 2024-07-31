@@ -16,7 +16,7 @@ Privates have a `_leading_underscore`
 
 # Quick Note on the Typing System
 Python is dynamically typed and strongly typed. So, variables can change types willy-nilly (dynamic) but using an incompatible type will throw an error (strong).  
-We don't have to declare types, but we can do type hinting though - again - the interpreter doesn't give a damn about type hints, they're just for IDEs and devs.
+We don't have to declare types, but we can do type hinting though - again - the interpreter doesn't give a damn about type hints, they're just for IDEs and devs. We'll get to type hints later since they could be their own entire lesson.
 
 # Booleans
 You've got `bool`.  
@@ -26,7 +26,7 @@ my_bool = True
 ```
 
 # No value
-You've got `NoneType`, it's like `null` or `void`. It's what you get when there ain't nothing to give.  
+You've got `NoneType`, in other languages you'll have seen `null` or `void`. It's what you get when there ain't nothing to give.  
 Declare it by assigning `None`:
 ```
 my_none_type = None
@@ -67,14 +67,14 @@ my_str = "Hello World!"
 | | `str1 += str2` | modifies `str1` |
 
 
-# Collections
+# Containers
 _**QUICK NOTE:**_ Any of the objects under this section (and strings as it happens) can have their length checked by passing them into the `len()` function.  
 _**SECOND QUICK NOTE:**_ These objects can't be copied with `my_copy = your_copy`, it has to be `my_copy = your_copy.copy()` but this is only a shallow copy, deep copies will come in a later lesson.  
 
 
 ## Key-Value Pairs (`dict`)
-We call them `dict`ionaries, you might call them dictionaries, hash-maps, hash-tables.  
-Declare it by assigning some comma separated key-value pairs between braces, a key must be separated from a value by a colon:
+We call them `dict`ionaries, you might call them dictionaries, hash-maps, hash-tables, or something like that.  
+Declare it by assigning some comma separated key-value pairs between braces, a key must be separated from a value by a colon `:`.
 ```
 my_dict = {'key': 'value', 'a': 1, 1: 'one'}  # filled
 my_dict = {}  # empty
@@ -82,9 +82,9 @@ my_dict = {}  # empty
 | need | command | note |
 |------|---------|------|
 | access value | `my_dict[key]` | throws error when key doesn't exist |
-| | `my_dict.get(key)` | returns `None` if key doesn't exist **OR** is key does exist but value is `None` |
+| | `my_dict.get(key)` | returns `None` if key doesn't exist **OR** if key does exist but value is `None` |
 | change value **OR** assign new key-pair | `my_dict[key] = value`|
-| merge dictionaries | `dict1 \| dict2` | returns new dict **AND** if key exists in both, value from dict2 takes priority **N.B.** only available in Python3.10 or higher |
+| merge dictionaries | `dict1 \| dict2` | returns new dict **AND** if key exists in both `dict`s then value from dict2 takes priority **N.B.** only available in Python3.9 or higher |
 || `{**dict1, **dict2}` | returns new dict **AND** same key priority as above **AND** available regardless of version |
 || `dict1.update(dict2)` | returns `None` just updates `dict1` **AND** same key priority as above **AND** available regardless of version |
 | remove key-pair | `del my_dict[key]` | |
@@ -94,7 +94,7 @@ my_dict = {}  # empty
 
 ### Additional notes
 Dictionaries don't have a fixed length, and can contain any mix of types for both keys and values.  
-Keys must be unique and hashable, to check if something is hashable just pop it into the `hash()` function (e.g. `hash('HASH ME!')`).  
+Keys must be unique and hashable, to check if something is hashable use a CLI interpreter to pop it into the `hash()` function (e.g. `hash('HASH ME!')` ) as unhashable types throw errors.  
 
 ## Value only, duplicates allowed (`list`)
 There's only `list`, no arrays, no vectors.  
@@ -107,7 +107,8 @@ my_list = []  # empty
 |------|---------|------|
 | access index | `my_list[index]` | can be negatively indexed to access values from other end (i.e. `my_list[-1]` returns last value, `my_list[-2]` returns penultimate value, etc) |
 | add to list | `my_list.append(value)` | |
-| merge lists | `[*list1, *list2]` | returns new list |
+| merge lists | `list1 + list2` | returns new list |
+|| `[*list1, *list2]` | returns new list |
 ||`list1.extend(list2)` | modifies list1 |
 | remove index | `del my_list[index]` ||
 | remove value | `my_list.remove(value)` | Only removes first instance of value **AND** throws error if value not present |
@@ -133,7 +134,7 @@ my_set = set()  # empty, remember {} is empty dict
 | discern if value in set | `value in my_set` | Returns either `True` or `False` |
 
 ### Additional notes
-Sets don't have a fixed length, and can contain a mix of types (so long as their hashable but we'll get to that later).  
+Sets don't have a fixed length, and can contain a mix of types (so long as they're hashable but we'll get to that later).  
 Sets don't maintain order, so you can't access a specific element.  
 
 # Truthy/Falsy

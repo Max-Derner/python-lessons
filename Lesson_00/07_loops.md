@@ -13,7 +13,7 @@ You declare a for loop with:
 for item in iterable:
     # do something with item
 ```
-Note that 4 spaces of indentation define what code is in scope for the list
+Note the codeblock defining scope
 
 So, for example if you want to do a countdown, you could do this:
 ```
@@ -46,16 +46,16 @@ Do it like this:
 for _ in range(20):
     # do something 20 times
 ```
-The underscore can be used wherever you like to signify that you don't care about the return value.
+The underscore can be used wherever you like to signify that you don't care about the return value (e.g. explicitly throwing away a functions return value).
 
 # While loop
-We don't have do-while loops, so don't ask.  You also define scope with 4 space of indentation here too  
+We don't have do-while loops, so don't ask. You also define scope with an indented codeblock again.  
 Our while loops go:
 ```
 while condition:
     # do a thing
 ```
-So, we covered conditions in the latter part of the "operations" section.  
+So, we covered conditions in the latter part of the "[operations](./05_operations.md#boolean-operations)" section under "Boolean operations".  
 You can have:
 ```
 While True:

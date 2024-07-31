@@ -8,7 +8,7 @@
 # CLI
 ## Output
 You've got `print()` which gets the job done. There is a logging library for proper applications but we'll get to that in another lesson.  
-You have `\n` for line breaks if you want them but print automatically adds a line break at the end.
+You have `\n` for line breaks if you want them but `print` automatically adds a line break at the end.
 You can put what you like into print and it'll still print:  
 ```
 print("Hello World!")
@@ -34,7 +34,7 @@ Enter something: _
 Where the underscore is the cursor (i.e. it's always inline with the prompt unless you start passing line breaks).
 
 # File
-We only have the one function `open()` but it should always be used in what's called a "context manager" which we'll do a deep dive on later.  
+We've got the function `open()` but it should always be used in what's called a "context manager" (we'll do a deep dive context managers in a later lesson).  
 So say you're reading a file called `text.txt`, you do it like this:
 ```
 with open("text.txt", mode='r') as f:  # here f represents the file io stream
@@ -48,7 +48,7 @@ with open("text.txt", mode='r') as f:  # here f represents the file io stream
     # use 4 spaces of indentation to define the scope
     each_line_as_a_separate_element_of_a_list = f.readlines()
 ```
-So long as we keep 4 spaces of indentation, we can use the file io stream 'f'. Once we drop the level of indentation (the indented section is known a a "code block") we can't use f anymore as the file will be closed. When using a context manager files will always automatically close (even if an error is thrown or you try to exit the interpreter altogether).
+So long as we keep 4 spaces of indentation to define the scope (known as a codeblock), we can use the file io stream 'f'. Once we exit the codeblock we can't use f anymore as the file will be closed. When using a context manager files will always automatically close (even if an error is thrown or you try to exit the interpreter altogether).
 
 
 Now, say you want to write to a file, you use the same context manager but you give it a different mode:
@@ -58,6 +58,8 @@ with open("text.txt", mode='w') as f:  # mode is 'w' for write
 ```
 There's only one method to write, so make sure to include your line breaks if you want them.
 
-**N.B.** `mode='w'` will overwrite the whole file, if you only want to add to the file, use `mode='a'` for "append"
+| **WARNING** |
+|-------------|
+| `mode='w'` will overwrite the whole file, if you only want to add to the file, use `mode='a'` for "append" |
 
 ## That's it here, [let's get going](./05_operations.md)
