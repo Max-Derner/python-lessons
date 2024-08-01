@@ -138,7 +138,19 @@ Sets don't have a fixed length, and can contain a mix of types (so long as they'
 Sets don't maintain order, so you can't access a specific element.  
 
 # Truthy/Falsy
-There are truthy/falsy values in Python. Everything is truthy unless it's; zero, None, False, or empty.
+There are truthy/falsy values in Python. Everything is truthy unless it's; zero, None, False, or empty.  
+
+There is a really cool thing you can do in Python with Truthy/Falsy assignment. You can chain variables with the `or` keyword and the first one to not be Falsy is what will be assigned.
+e.g.
+```
+my_list = []
+my_dict = {}
+my_int = 42
+my_float = 3.9
+
+something_truthy = my_list or my_dict or my_int or my_float
+```
+`something_truthy` will take on the value of `42` as everything before it was Falsy.
 
 # That's it?
 Yeah, for now.
