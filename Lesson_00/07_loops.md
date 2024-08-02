@@ -76,6 +76,13 @@ while my_list != []:
 ```
 Which will loop until the list has been consumed.
 
+# Loop Control
+Issue these command keywords to control how a loop behaves
+| keyword | effect |
+|---------|--------|
+| `continue` | finishes the current cycle early and continues with the rest of the planned cycles |
+| `break` | exits the loop completely, preventing any further cycles |
+
 
 ### Let's move onto the [last bit](./08_functions.md)
 

@@ -16,6 +16,8 @@
 Really, the kind of person I'm targeting here is someone who already knows how to code. I'm imagining that you're really well versed in at least one language, you want to try out a bit of Python but all these Python courses treat you like you don't even know what all these letters on the keyboard are for, when in reality you're a stone cold software engineering professional.  
 This isn't aimed at someone who's never done any coding, or someone who already knows Python. This is just to get you over the hump of transitioning from one language to another. By the end of this course, you should have a good foundation in Python and be able to take charge of your own education, reading docs and figuring things out for yourself.
 
+**N.B.** There will come a point where you feel like you want to shake free of my lessons. When that time comes, I highly recommend looking at the official [Python Language Reference Manual](https://docs.python.org/3/reference/index.html)
+
 
 # Content
 [**Lesson 00**](./Lesson_00/00_lesson_intro.md): Getting a base of knowledge going that we can build on
