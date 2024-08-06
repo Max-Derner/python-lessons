@@ -26,7 +26,7 @@ my_bool = True
 ```
 
 # No value
-You've got `NoneType`, in other languages you'll have seen `null` or `void`. It's what you get when there ain't nothing to give.  
+You've got `None`, in other languages you'll have seen `null` or `void`. It's what you get when there ain't nothing to give.  
 Declare it by assigning `None`:
 ```
 my_none_type = None
@@ -151,6 +151,38 @@ my_float = 3.9
 something_truthy = my_list or my_dict or my_int or my_float
 ```
 `something_truthy` will take on the value of `42` as everything before it was Falsy.
+
+# Declaring Types!
+So this is another thing the interpreter doesn't care about. Declare it one way and assign it the other, interpreter don't mind. A well set up IDE will help you keep to the declared types but really this is for you and the other devs working on your code.  
+
+You've already seen all the types because I formatted them as inline code to cement it in your brain before you got here.  
+So it goes like this:
+```
+my_int: int = 42
+my_list: list = [1, 2, 3, 4]
+# so on and so forth
+```
+It just goes `name: type = value`  
+If you want to declare the content of a container, you get:
+```
+my_list: list[str] = ['this', 'is', 'cool']
+my_dict: dict[int, str] = {1: 'one', 2: 'two'}
+# N.B. You can't do it this way in Python3.8 but that's deprecated in two months anyway
+```
+
+Say you want to state a variable can take one value **_or_** another, it depends on the runtime version.  
+Pre 3.10:
+```
+from typing import Union
+
+my_list = list[Union[int, str]] = [5, 4, 3, 2, 1, 'blast off!']
+```
+
+3.10 and beyond:
+```
+my_list = list[int | str] = [5, 4, 3, 2, 1, 'blast off!']
+```
+
 
 # That's it?
 Yeah, for now.
