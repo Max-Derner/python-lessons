@@ -44,7 +44,7 @@ e.g.
 ```
 my_big_int = 1_000_000
 ```
-## Fractions
+## Decimals
 You've got `float`, no doubles, no float64.  
 Declare it by assigning a number with a decimal place:
 ```
