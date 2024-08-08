@@ -19,7 +19,7 @@ Don't want the line break at the end?
 Do this:
 ```
 print("All on...", end='')  # end='' prevents the line break
-print("one line!)
+print("one line!")
 ```
 ## Input
 You've got `input()`.  
