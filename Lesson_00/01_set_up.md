@@ -41,6 +41,12 @@ To activate the "my-cool-venv" venv, you run:
 ```
 source ./my-cool-venv/bin/activate
 ```
+....unless you're on bloody Windows!!  
+Then you have to run:
+```
+my-cool-venv\Scripts\activate
+```
+If you are on Windows, I totally recommend using WSL by the way. It puts a little Linux right inside your machine which is just beautiful <3
 
 # Installing 3rd party libraries
 Pick one from PyPI [here](https://pypi.org/), let's say you picked `pandas`.  
