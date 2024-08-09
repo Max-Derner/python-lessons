@@ -20,6 +20,8 @@ If not, give one of these a go:
 * [Mac](./Install_Instructions/Mac.md)
 * [WSL (Ubuntu)](./Install_Instructions/WSL.md)
 
+**N.B.** For learning, just install the latest version available. If you're on a project, bloody well use what they tell you to use!!
+
 # Setting up an IDE
 Don't you **_dare_** use IDLE, it's the "IDE" that bundled with Python but it's worse than worse, just don't subject yourself to it.
 
