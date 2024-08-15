@@ -8,13 +8,13 @@
 
 You might be used to single line comments **_and_** multi-line comments.  
 Well, we just have the one:
-```
+``` python
 # This is a Python comment
 # notice how there is a '#' symbol followed by a space and then the comment content
 # Also notice how I was fine to use the '#' symbol in a comment
 ```
 If you want to have a comment after some code:
-```
+``` python
 my_int = 1  # well in that case, I need to have two spaces before the '#' symbol and one after
 ```
 

@@ -21,14 +21,14 @@ We don't have to declare types, but we can do type hinting though - again - the 
 # Booleans
 You've got `bool`.  
 Declare it by assigning either `True` or `False`:
-```
+``` python
 my_bool = True
 ```
 
 # No value
 You've got `None`, in other languages you'll have seen `null` or `void`. It's what you get when there ain't nothing to give.  
 Declare it by assigning `None`:
-```
+``` python
 my_none_type = None
 ```
 
@@ -36,25 +36,25 @@ my_none_type = None
 ## Whole numbers
 You've got `int`, no long, no short, no int32.  
 Declare it by assigning a number without a decimal place:
-```
+``` python
 my_int = 1
 ```
 If you've got a real big number, you can use an underscore as a thousands separator.  
 e.g.
-```
+``` python
 my_big_int = 1_000_000
 ```
 ## Decimals
 You've got `float`, no doubles, no float64.  
 Declare it by assigning a number with a decimal place:
-```
+``` python
 my_float = 1.0
 ```
 
 # Text
 There's just `str`ings, there's no chars.  
 Declare it by assigning something between quotes:
-```
+``` python
 my_str = "Hello World!"
 ```
 
@@ -75,7 +75,7 @@ _**SECOND QUICK NOTE:**_ These objects can't be copied with `my_copy = your_copy
 ## Key-Value Pairs (`dict`)
 We call them `dict`ionaries, you might call them dictionaries, hash-maps, hash-tables, or something like that.  
 Declare it by assigning some comma separated key-value pairs between braces, a key must be separated from a value by a colon `:`.
-```
+``` python
 my_dict = {'key': 'value', 'a': 1, 1: 'one'}  # filled
 my_dict = {}  # empty
 ```
@@ -99,7 +99,7 @@ Keys must be unique and hashable, to check if something is hashable use a CLI in
 ## Value only, duplicates allowed (`list`)
 There's only `list`, no arrays, no vectors.  
 Declare it by assigning some comma separated values between square brackets:
-```
+``` python
 my_list = [1, 2, 'c', 'd']  # filled
 my_list = []  # empty
 ```
@@ -123,7 +123,7 @@ Lists don't have a fixed length, and can contain any mix of types.
 ## Value only, no duplicates (`set`)
 We call this a `set`.  
 Declare it by assigning some comma separated values between braces:
-```
+``` python
 my_set = {1, 2, 'c', 'd'}  # filled
 my_set = set()  # empty, remember {} is empty dict
 ```
@@ -142,7 +142,7 @@ There are truthy/falsy values in Python. Everything is truthy unless it's; zero,
 
 There is a really cool thing you can do in Python with Truthy/Falsy assignment. You can chain variables with the `or` keyword and the first one to not be Falsy is what will be assigned.
 e.g.
-```
+``` python
 my_list = []
 my_dict = {}
 my_int = 42
@@ -157,14 +157,14 @@ So this is another thing the interpreter doesn't care about. Declare it one way 
 
 You've already seen all the types because I formatted them as inline code to cement it in your brain before you got here.  
 So it goes like this:
-```
+``` python
 my_int: int = 42
 my_list: list = [1, 2, 3, 4]
 # so on and so forth
 ```
 It just goes `name: type = value`  
 If you want to declare the content of a container, you get:
-```
+``` python
 my_list: list[str] = ['this', 'is', 'cool']
 my_dict: dict[int, str] = {1: 'one', 2: 'two'}
 # N.B. You can't do it this way in Python3.8 but that's deprecated in two months anyway
@@ -172,14 +172,14 @@ my_dict: dict[int, str] = {1: 'one', 2: 'two'}
 
 Say you want to state a variable can take one value **_or_** another, it depends on the runtime version.  
 Pre 3.10:
-```
+``` python
 from typing import Union
 
 my_list = list[Union[int, str]] = [5, 4, 3, 2, 1, 'blast off!']
 ```
 
 3.10 and beyond:
-```
+``` python
 my_list = list[int | str] = [5, 4, 3, 2, 1, 'blast off!']
 ```
 

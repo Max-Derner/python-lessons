@@ -13,7 +13,7 @@ Okie doke, the one thing you can rely on is if-else statements.
 
 Nice and simple, everyone knows them.  
 Here's the syntax:
-```
+``` python
 if expression1:
     # do something
 elif expression2:
@@ -26,7 +26,7 @@ Notice that we're using the 4 spaces of indentation to define scope.
 Also notice that we don't use curly braces (`{}`) to define scope, that's done with an indented codeblock like it is everywhere else in Python.
 
 Example:
-```
+``` python
 if some_number % 2 == 0:
     print("That's an even number!")
 elif some_number % 2 == 1:
@@ -38,7 +38,7 @@ else:
 # match-case
 So, if you have Python3.10 or newer, you will be able to use match-case statements. Though you will likely know them as switch statements.  
 They are just about my favourite thing in Python and they go like this:
-```
+``` python
 match object:
     case pattern1:
         # do something

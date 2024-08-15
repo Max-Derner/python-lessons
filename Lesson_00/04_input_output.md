@@ -10,21 +10,21 @@
 You've got `print()` which gets the job done. There is a logging library for proper applications but we'll get to that in another lesson.  
 You have `\n` for line breaks if you want them but `print` automatically adds a line break at the end.
 You can put what you like into print and it'll still print:  
-```
+``` python
 print("Hello World!")
 print(my_int)
 print(print)  # See how you can pass the function into itself? Functions are "1st class citizens" in Python!
 ```
 Don't want the line break at the end?
 Do this:
-```
+``` python
 print("All on...", end='')  # end='' prevents the line break
 print("one line!")
 ```
 ## Input
 You've got `input()`.  
 Assign the return value of input to a variable, and pass in the user prompt. This return value will **_always_** be a `str`ing.  
-```
+``` python
 user_input = input("Enter something: ")
 ```
 That will show up on the CLI as:
@@ -36,14 +36,14 @@ Where the underscore is the cursor (i.e. it's always inline with the prompt unle
 # File
 We've got the function `open()` but it should always be used in what's called a "context manager" (we'll do a deep dive context managers in a later lesson).  
 So say you're reading a file called `text.txt`, you do it like this:
-```
+``` python
 with open("text.txt", mode='r') as f:  # here f represents the file io stream
     # use 4 spaces of indentation to define the scope
     the_whole_file_as_a_string = f.read()
 ```
 Or like this:
 
-```
+``` python
 with open("text.txt", mode='r') as f:  # here f represents the file io stream
     # use 4 spaces of indentation to define the scope
     each_line_as_a_separate_element_of_a_list = f.readlines()
@@ -52,7 +52,7 @@ So long as we keep 4 spaces of indentation to define the scope (known as a codeb
 
 
 Now, say you want to write to a file, you use the same context manager but you give it a different mode:
-```
+``` python
 with open("text.txt", mode='w') as f:  # mode is 'w' for write
     f.write("Some text or something I guess")
 ```

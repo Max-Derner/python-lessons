@@ -10,7 +10,7 @@
 # Installing Python
 Good news! It's probably already installed!
 Run the following command in your CLI:
-```
+``` bash
 python3 --version
 ```
 If you get back something like `Python 3.12.4` then you're all set.
@@ -36,11 +36,11 @@ This is all readability stuff and does not impact how the code runs. We'll go ov
 So real quick, a venv is a `v`irtual `env`ironment. It isolates your Python version and installed libraries from other projects and more importantly - your base Python installation. If you install libraries against your base Python version, other projects will need to account for having that library installed when they install dependencies, this will break a lot of stuff.  
 
 To create a venv called "my-cool-venv" (assuming you have Python installed now), you run:
-```
+``` bash
 python3 -m venv my-cool-venv
 ```
 To activate the "my-cool-venv" venv, you run:
-```
+``` bash
 source ./my-cool-venv/bin/activate
 ```
 ....unless you're on bloody Windows!!  
@@ -53,7 +53,7 @@ If you are on Windows, I totally recommend using WSL by the way. It puts a littl
 # Installing 3rd party libraries
 Pick one from PyPI [here](https://pypi.org/), let's say you picked `pandas`.  
 With your venv active, run:
-```
+``` bash
 pip install pandas
 ```
 or whatever library you're installing. Again, we'll add professionalism to this later.
@@ -66,7 +66,7 @@ or whatever library you're installing. Again, we'll add professionalism to this 
 # Using libraries
 Beyond what you install on your venv, there's [an absolute tonne of included libraries](https://docs.python.org/3/library/index.html#library-index). Check out [my favorites for newcomers](./maxs_fav_libs.md)  
 To import (and then use) a library, say `json`, you'd do this:
-```
+``` python
 import json
 my_json_string = json.dumps(some_python_dictionary)
 ```

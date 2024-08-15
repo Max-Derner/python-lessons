@@ -9,39 +9,44 @@
 Dead easy this one.
 
 # Declare them
-```
+``` python
 def my_cool_function():
     # some code
 ```
 
 Want to pass in arguments?
-```
+``` python
 def my_really_cool_function(a, b, c):
     # some code that does something with the variables a, b, and c
 ```
 Want a default value?
-```
-def my_func(a='default value'):  # 
+``` python
+def my_func(a='default value'):  # note the lack of space around the '='
     # some stuff
 ```
 
 Want to return something?
 Use the keyword `return`
-```
+``` python
 def my_useful_function():
     return "You wanted this, right?"
 ```
 
 # Call them
-```
+Without arguments:
+``` python
 my_cool_function()
 ```
-```
+
+With arguments:
+``` python
 my_really_cool_function(1, 'hi', True)
 # Alternatively:
 my_really_cool_function(b='hi', a=1, c=True)  # Note the lack of spaces around the '=', and that the arguments don't have to be in order
 ```
-```
+
+Assigning the output:
+``` python
 the_returned_value = my_useful_function()
 ```
 
