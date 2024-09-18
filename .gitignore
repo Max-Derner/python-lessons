@@ -2,3 +2,4 @@
 zzz/
 venv
 Cold_Store/
+**/__pycache__
