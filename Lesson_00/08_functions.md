@@ -46,6 +46,43 @@ my_really_cool_function(b='hi', a=1, c=True)  # Note the lack of spaces around t
 ```
 The first method of passing parameters makes use of "args" (or arguments), the second method makes use of "kwargs" (or kwarguments, just kidding they're called keyword-arguments). You can use a combination of arguments and kwarguments but you have to pass in your kwarguments _after_ your arguments.  
 
+
+Assigning the output:
+``` python
+the_returned_value = my_useful_function()
+```
+
+# Returning and accepting multiple variables
+
+If you need to return multiple objects, we can use a tuple and then tuple unpacking.
+
+So, say you have a function that sorts the elements of some list into those that are long and those that are short.  
+The first bit we need to tackle is packing the two variables into a tuple. Let's say we did our algorithm like this:
+```python
+def sorting_func(some_list: list[str]):
+    """sorts elements into a list of elements with length less than
+    a boundary and elements longer than or equal to a boundary.
+
+    **returns**: `(list of short elements, list of long elements)`"""
+    boundary = 5
+    short_list = []
+    long_list = []
+    for element in some_list:
+        if len(element) < boundary:
+            short_list.append(element)
+        else:
+            long_list.append(element)
+
+    # Note the way we pack the returned variables into a tuple
+    return (short_list, long_list)
+```
+
+The way to retrieve these returned variables is as so:
+```python
+short, long = sorting_func(['a', 'asd', 'qwerty', 'zxcvbnm'])
+```
+
+
 ## Arguments and Kwarguments
 For example, say we have this function:
 ```python
@@ -74,10 +111,6 @@ but you can't do:
     my_func(d=66, 99, 98)
                         ^
 SyntaxError: positional argument follows keyword argument
-```
-Assigning the output:
-``` python
-the_returned_value = my_useful_function()
 ```
 
 # Arbitrary Arguments and Kwarguments
@@ -124,7 +157,8 @@ def my_func(*args, **kwargs):
     print(F"{kwargs=}")
 ```
 
-In VSCode, that renders as:
+In VSCode, that renders as:  
+
 ![rendered docstring](./IMGS/docstring_render.png)
 
 
