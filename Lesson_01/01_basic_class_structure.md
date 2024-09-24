@@ -61,7 +61,8 @@ class Counter:
             self._count = self.STARTING_VALUE
         self._count += 1
 ```
-[Counter code is here](./section_01_supplements/counter_code.py)
+[Counter code is here](./section_01_supplements/counter_code.py)  
+
 Note:
 * both private methods and private variables are named with a leading underscore.  
 * constants are declared in `SCREAMING_SNAKE_CASE`
