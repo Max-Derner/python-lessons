@@ -1,7 +1,7 @@
 ## [<- GO BACK](../01_basic_class_structure.md#privates-constants-default-arguments-and-docstrings)
 
 
-### **N.B.** This wisdom applies to default arguments being used in function signatures as well as class method signatures.  
+### **N.B.** This wisdom applies to default arguments being used in function signatures as well as methods signatures.  
 
 # How does this happen?
 
@@ -15,7 +15,7 @@ For what you'll see on a daily basis, there are only the three mutable types to 
 
 
 # Example of when things go wrong
-Say we define these two functions (again, the same wisdom holds for class methods):
+Say we define these two functions (again, the same wisdom holds for methods belonging to a class):
 ```python
 # mutable default
 def add_to_list(value, list_to_add_to: list = []):

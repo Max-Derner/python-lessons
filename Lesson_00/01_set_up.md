@@ -87,6 +87,11 @@ This can be a little tricky as it doesn't really have code-completion or suggest
 **N.B.** To exit the interpreter give it the command `exit()` (as keyboard interrupts won't work)  
 The interpreter will print out anything returned by an expression or function, as well as what is supposed to be printed to the console.
 
+## One last word...
+There are many many ways to set up your Python environment. I only suggest the above as what I consider to be that with the fewest headaches. But please do take a look around at what else is on offer, you may very commonly hear of [PyEnv](https://github.com/pyenv/pyenv), [Poetry](https://python-poetry.org/docs/), and [Anaconda](https://www.anaconda.com/).
+
+If you are only just getting started in Python, forget about those... then remember them much much later and look into them then.
+
 # What else?
 Nothing. That's all you're getting at this point, we're just keen to get a thin base going to build on top of.  
 ### [Let's move on](./02_variables.md)

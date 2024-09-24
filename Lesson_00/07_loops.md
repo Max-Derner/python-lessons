@@ -40,7 +40,7 @@ for i in range(0, 10, 2):
 ```
 
 Now, for loops are often used to do something x number of times but you don't actually care about the value of i.  
-In Python, it is expected that you sort of throw i away and don't declare it.  
+In Python, it is expected that you sort of throw `i` away and don't declare it.  
 Do it like this:
 ``` python
 for _ in range(20):

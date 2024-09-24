@@ -39,9 +39,9 @@ You can also do a cooler shorthand, with any of the operators we've seen so far:
 ``` python
 e /= f
 ```
-So, right there our equals has been replaced with an equals and an operator smushed together, and that applies for any of the operators we've seen. These two expressions are equal.
+So, right there our equals has been replaced with an equals and an operator smushed together, and that applies for any of the operators we've seen. The two expressions above are equal.
 
-_NOTE:_ We don't have increment and decrement operators, so you can't do a++, ++a, --a, or a--.
+_**NOTE**_: We don't have increment and decrement operators, so you can't do a++, ++a, --a, or a--.
 
 
 
@@ -66,7 +66,7 @@ not False  # evaluates as True
 
 Broadly speaking, you use double equals, like this:
 ``` python
-some_list == []  # this evaluates to True if "some_list" is am empty list
+some_list == []  # this evaluates to True if "some_list" is an empty list
 ```
 There are occasions where you should use the keyword `is` instead of `==`. This is when you want to assert that they are the same object.  
 In Python, there is one `True`, one `False`, and one `None`. So if you're testing for equality to one of those values, you need to use the `is` keyword. So you'll end up with expressions like:  

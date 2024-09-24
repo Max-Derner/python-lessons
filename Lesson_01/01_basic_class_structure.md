@@ -22,8 +22,8 @@ Few things to note:
 * We declare our class using the keyword `class`
 * Our classes are named in CamelCase
 * The initialising function is called `__init__` (note the two underscores either side)
-* `self` acts as the variable to refer to the class itself
-* `self` must be the first argument passed into any class method
+* `self` acts as the variable to refer to the instance of the class itself
+* `self` must be the first argument passed into any method belonging to a class
 
 **N.B.** you don't _have_ to call the `self` keyword "self". If you replaced every instance of `self` with `this` (like the Java equivalent) nothing bad would happen, it's not even a PEP8 standard! I say nothing bad would happen, but your Python fanatic colleagues would secretly hate you forever because naming it "self" is standard procedure.
 

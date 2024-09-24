@@ -16,6 +16,8 @@
 So, if you're a Java or a C# dev, you're probably used to only being able to inherit from one class, and then multiple interfaces.  
 Well that ain't the situation here! In Python, **there are no interfaces**. But you can inherit from as many classes as you please!
 
+Now, I say there _are no interfaces_ and that is true but there are alternatives. We'll look at [abstract base classes (ABCs)](https://docs.python.org/3/library/abc.html) and [protocols](https://typing.readthedocs.io/en/latest/spec/protocol.html) another time (it's no small topic for sure).
+
 # Multiple Inheritance
 
 All you do to inherit from multiple classes is name more between the parentheses and separate them with commas. Like this:  

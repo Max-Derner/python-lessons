@@ -33,11 +33,11 @@ class GettingAndSettingClass:
 
 To note:
 * We still declare the private variable (and that variable is still directly accessible)
-* We declare a class method in the same name as the attribute we want a **getter** for
+* We declare a method in the same name as the attribute we want a **getter** for
     * this getter needs a `@property` decorator
     * this needs to be declared **_before_** we create a setter
     * this needs to actually return the value we're after
-* We declare a class method in the same name as the attribute we want a **setter** for
+* We declare a method in the same name as the attribute we want a **setter** for
     * this setter needs a `@<variable_name>.setter` decorator
     * this needs to be declared **_after_** the getter
     * this needs to actually change the guarded variable

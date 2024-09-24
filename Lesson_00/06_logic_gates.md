@@ -42,13 +42,51 @@ They are just about my favourite thing in Python and they go like this:
 match object:
     case pattern1:
         # do something
-    case paettern2:
+    case pattern2:
         # do something else
     case _:
         # do some default behaviour
 ```
-**N.B.** `case _:` marks the default cae, **also** notice that you do not have to break between cases
+**N.B.** `case _:` marks the default case, **also** notice that you do not have to break between cases
 
-There's more to match-case statements but we'll swing round to that in a different lesson
+But there's more to match-case statements!
+
+You can use match-case to match against not just the explicit content of an object but it's structure instead. Say you've got some api, you've used the `json` library to convert the received JSON into a Python dict and now you want to check the shape of the data. You could do something like this:
+```python
+incoming = {
+    'query_string': 'some query OR something like that',
+    'meta-data': {'some': 'dictionary'},
+    'some other stuff': 'whatever'
+}
+
+match incoming:
+    case {'query_string': query, 'meta-data': meta, **kwargs}:
+        print(F"{query=}")
+        print(F"{meta=}")
+    case _:
+        print("Ooops! Done biffed it!")
+```
+Note the fact that we're assigning variables to aspects of the predicted input object.  
+That outputs the following:
+```
+query='some query OR something like that'
+meta={'some': 'dictionary'}
+```
+and if `incoming` changes to:
+```python
+incoming = {
+    'body': {
+        'query_string': 'some query OR something like that',
+        'meta-data': {'some': 'dictionary'},
+        'some other stuff': 'whatever'
+    }
+}
+```
+we get the following output:
+```
+Ooops! Done biffed it!
+```
+
+Have a play around with it and see what you can do!
 
 ### Off to the [next adventure!](./07_loops.md)

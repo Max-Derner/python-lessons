@@ -21,6 +21,27 @@ Do this:
 print("All on...", end='')  # end='' prevents the line break
 print("one line!")
 ```
+Need to put data into a string? There is something called an [f-string](https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings)
+```python
+my_data = 3
+print(F"There is {my_data} data")  # the 'f' can be upper or lower case
+```
+F-strings (or "formatted string literals") are super duper cool, there's a tonne you can do with them for terse code that produces clean and expressive output. There are also many ways to format strings in Python, beyond the f-string most take on a style similar C or Bash.  
+Please get a look at [the docs](https://docs.python.org/3/tutorial/inputoutput.html) if you want to dive a little deeper.
+
+My favourite uses of f-strings are these:
+```python
+Python 3.12.4 (main, Jun  6 2024, 18:26:44) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> my_num = 1.123456789
+>>> print(F"{my_num:.2f}")  # the ':.2f' gives you 2 decimal places
+1.12
+>>> print(F"{my_num=}")  # the '=' gives you a neat formatting to show what you are inspecting as well as the value
+my_num=1.123456789
+>>> print(F"{(my_num ** 3) % 5=}")  # for example, you can use it to show the result of full expressions
+(my_num ** 3) % 5=1.4179767796223608
+>>> 
+```
 ## Input
 You've got `input()`.  
 Assign the return value of input to a variable, and pass in the user prompt. This return value will **_always_** be a `str`ing.  
@@ -34,7 +55,7 @@ Enter something: _
 Where the underscore is the cursor (i.e. it's always inline with the prompt unless you start passing line breaks).
 
 # File
-We've got the function `open()` but it should always be used in what's called a "context manager" (we'll do a deep dive context managers in a later lesson).  
+We've got the function `open()` but it should always be used in what's called a "context manager" (we'll do a deep dive on context managers in a later lesson).  
 So say you're reading a file called `text.txt`, you do it like this:
 ``` python
 with open("text.txt", mode='r') as f:  # here f represents the file io stream
