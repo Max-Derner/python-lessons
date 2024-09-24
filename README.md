@@ -20,4 +20,5 @@ This isn't aimed at someone who's never done any coding, or someone who already 
 
 
 # Content
-[**Lesson 00**](./Lesson_00/00_lesson_intro.md): Getting a base of knowledge going that we can build on
+[**Lesson_00**](./Lesson_00/00_lesson_intro.md): Getting a base of knowledge going that we can build on
+[**Lesson_01**](./Lesson_01/00_lesson_intro.md): Getting to grips with classes
