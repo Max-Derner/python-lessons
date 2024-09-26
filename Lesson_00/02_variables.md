@@ -80,6 +80,20 @@ We'll see docstrings later in this lesson, so don't fret if you didn't understan
 | discern if substring in str | `substring in my_str` | returns either `True` or `False` **AND** substring can be any length including 0 or 1 |
 | concatenate 2 strings | `str1 + str2` | returns new string |
 | | `str1 += str2` | modifies `str1` |
+| | `'some text ' 'some more text'` | returns new string - very useful for abiding by the line length PEP8 standard (see example below) |
+
+So, at some point you will want to use a very long string but PEP8 will shout at you for it:
+```python
+my_string = "The quick brown fox jumps over the lazy dog, passes to the snowman and goooooaaaallll!"
+```
+PEP8 flags that up because it's too bloody long. The solution, wrap it up in a set of parentheses and then do that last concatenation technique:
+```python
+my_string = (
+    "The quick brown fox jumps over the lazy dog,"
+    " passes to the snowman and goooooaaaallll!"
+)
+```
+Smashing!
 
 
 # Containers
