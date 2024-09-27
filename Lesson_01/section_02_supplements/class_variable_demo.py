@@ -22,31 +22,32 @@ def print_all(*args: Demo):
     print()
 
 
-print("Instantiating object 'a' as an instance of class 'Demo'")
-a = Demo('a')
-print_all(a)
+if __name__ == "__main__":
+    print("Instantiating object 'a' as an instance of class 'Demo'")
+    a = Demo('a')
+    print_all(a)
 
-print("=== Changing variables with respect to class ===")
-Demo.an_int += 99
-Demo.a_list.append('b')
+    print("=== Changing variables with respect to class ===")
+    Demo.an_int += 99
+    Demo.a_list.append('b')
 
-print()
-print("Instantiating object 'b' as an instance of class 'Demo'")
-b = Demo('b')
-print_all(a, b)
+    print()
+    print("Instantiating object 'b' as an instance of class 'Demo'")
+    b = Demo('b')
+    print_all(a, b)
 
-print("Instantiating object 'c' as an instance of class 'Demo'")
-c = Demo('c')
-print_all(a, b, c)
+    print("Instantiating object 'c' as an instance of class 'Demo'")
+    c = Demo('c')
+    print_all(a, b, c)
 
-print("=== Changing variables with respect to instance 'a' ===")
-a.an_int += 72
-a.a_list.append('c')
+    print("=== Changing variables with respect to instance 'a' ===")
+    a.an_int += 72
+    a.a_list.append('c')
 
-print_all(a, b, c)
+    print_all(a, b, c)
 
-print("=== Changing variables with respect to class ===")
-Demo.an_int += 60
-Demo.a_list.append('bee')
+    print("=== Changing variables with respect to class ===")
+    Demo.an_int += 60
+    Demo.a_list.append('bee')
 
-print_all(a, b, c)
+    print_all(a, b, c)

@@ -1,8 +1,18 @@
+from pprint import pprint
+
+# This is representative of the inheritance of the classes below
+#      A         Ancient Ancestor (or "Great Great Grandparent")
+#     / \
+#    B   C       Great Grandparents
+#   / \ / \
+#  D   E   F     Grandparents
+#   \ / \ /
+#    G   H       Parents
+#     \ /
+#      I         Child
 
 
 # This Python code is totally valid, it just doesn't adhere to PEP8 standards
-
-
 class A: ...
 class B(A): ...
 class C(A): ...
@@ -14,4 +24,4 @@ class H(E, F): ...
 class I(G, H): ...
 
 
-print(I.mro())
+pprint(I.mro())
