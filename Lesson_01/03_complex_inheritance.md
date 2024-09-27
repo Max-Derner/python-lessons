@@ -210,7 +210,7 @@ class Hippogriff(Horse, Eagle):
         Eagle.__init__(self)
 ```
 
-Now when we instantiate the `Hippogriff` class, the bugger is going to end up with a body of `"eagle body"` and a head of `"eagle head"`! So what's best to do here?  
+Now when we instantiate the `Hippogriff` class, the little blighter is going to end up with a body of `"eagle body"` and a head of `"eagle head"`! So what's best to do here?  
 Truth of the matter is, there's plenty of ways to skin a hippogriff. My recommendation is to use a bit of name mangling.
 
 We do name mangling in Python by giving an attribute a double leading underscore. So let's refactor the `Horse` class so the assignment of a body happens in a separate name mangled function. To use it later though, we'll need to call that function from inside a non-name mangled version.  
