@@ -12,7 +12,6 @@ Getters and setters go like this:
 
 ```python
 class GettingAndSettingClass:
-    _my_var: int
 
     def __init__(self, initial_value: int):
         self.my_var = initial_value
@@ -27,7 +26,10 @@ class GettingAndSettingClass:
         if isinstance(value, int) and value >= 0:
             self._my_var = value
         else:
-            print("Negative value provided for 'my_var', setting to 0")
+            print(
+                "Negative value or incorrect type provided for 'my_var'"
+                ", setting to 0"
+            )
             self._my_var = 0
 ```
 
@@ -43,21 +45,26 @@ To note:
     * this needs to actually change the guarded variable
 * We did **not** set the variable directly in in `__init__` method, we used the setter instead
 
+Getters, setters, and even deleters are [defined here](https://docs.python.org/3/library/functions.html#property)
+
 ## Examples
 Here is some sample output:
 ```
 >>> from Lesson_01.section_04_supplements.getters_and_setters_code import GettingAndSettingClass
->>> my_class = GettingAndSettingClass(-1)
-Negative value provided for 'my_var', setting to 0
->>> my_class.my_var
+>>> a = GettingAndSettingClass(-1)
+Negative value or incorrect type provided for 'my_var', setting to 0
+>>> a.my_var = 12345
+>>> a.my_var 
+12345
+>>> a.my_var = -12345
+Negative value or incorrect type provided for 'my_var', setting to 0
+>>> a.my_var
 0
->>> my_class.my_var = 4
->>> my_class.my_var
-4
->>> my_class.my_var = -4
-Negative value provided for 'my_var', setting to 0
->>> my_class.my_var
+>>> a.my_var = "HELP!!!"
+Negative value or incorrect type provided for 'my_var', setting to 0
+>>> a.my_var
 0
+>>> 
 ```
 
 The example code is left for you in [getters_and_setters_code.py](./section_04_supplements/getters_and_setters_code.py)

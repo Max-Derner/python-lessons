@@ -24,4 +24,5 @@ class H(E, F): ...
 class I(G, H): ...
 
 
-pprint(I.mro())
+if __name__ == "__main__":
+    pprint(I.mro())

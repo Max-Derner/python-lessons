@@ -31,19 +31,19 @@ class ShetlandPony(Horse):
         </body>"""
 
 
-print("\nBoJack the horse")
-bojack = Horse()
-print(F"{bojack.head=}")
-print(F"{bojack.body=}")
-print(F"{bojack.legs=}")
-bojack.make_noise()
-bojack.gallop()
+if __name__ == "__main__":
+    print("\nBoJack the horse")
+    bojack = Horse()
+    print(F"{bojack.head=}")
+    print(F"{bojack.body=}")
+    print(F"{bojack.legs=}")
+    bojack.make_noise()
+    bojack.gallop()
 
-
-print("\nHollyhock the shetland pony")
-hollyhock = ShetlandPony()
-print(F"{hollyhock.head=}")
-print(F"{hollyhock.body=}")  # throws error here
-print(F"{hollyhock.legs=}")
-hollyhock.make_noise()
-hollyhock.gallop()
+    print("\nHollyhock the shetland pony")
+    hollyhock = ShetlandPony()
+    print(F"{hollyhock.head=}")
+    print(F"{hollyhock.body=}")  # ! raises exception here
+    print(F"{hollyhock.legs=}")
+    hollyhock.make_noise()
+    hollyhock.gallop()

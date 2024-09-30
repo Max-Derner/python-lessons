@@ -12,13 +12,14 @@ class MySingleton:
         self.something = something
 
 
-singleton_1 = MySingleton(something=3)
-singleton_2 = MySingleton(something=99)
+if __name__ == "__main__":
+    singleton_1 = MySingleton(something=3)
+    singleton_2 = MySingleton(something=99)
 
-print(F"{singleton_1.something}")
-print(F"{singleton_2.something}")
+    print(F"{singleton_1.something}")
+    print(F"{singleton_2.something}")
 
-singleton_1.something = 'something else'
+    singleton_1.something = 'something else'
 
-print(F"{singleton_1.something}")
-print(F"{singleton_2.something}")
+    print(F"{singleton_1.something}")
+    print(F"{singleton_2.something}")

@@ -57,22 +57,23 @@ class Planet:
         return hash(own_position)
 
 
-earth = Planet('Earth', 17394, 3728943, -3272672)
-also_earth = Planet(
-    name='Earth',
-    x_coord=17394,
-    y_coord=3728943,
-    z_coord=-3272672
-)
-venus = Planet('Venus', 73849050, 3487506026, -428649932)
-le_earth = Planet('Le Earth', 17394, 3728943, -3272672)
-not_a_planet = "I'm not a planet!"
+if __name__ == "__main__":
+    earth = Planet('Earth', 17394, 3728943, -3272672)
+    also_earth = Planet(
+        name='Earth',
+        x_coord=17394,
+        y_coord=3728943,
+        z_coord=-3272672
+    )
+    venus = Planet('Venus', 73849050, 3487506026, -428649932)
+    le_earth = Planet('Le Earth', 17394, 3728943, -3272672)
+    not_a_planet = "I'm not a planet!"
 
-# Here's some of the examples run but just mess around with it for your
-# own benefit. Maybe even try adding one of the other comparative
-# dunder methods
-print(F"{str(earth)=}")
-print(F"{repr(earth)=}")
-print(F"{repr(also_earth)=}")
-print(F"{earth < venus=}")
-print(F"{earth < not_a_planet=}")
+    # Here's some of the examples run but just mess around with it for your
+    # own benefit. Maybe even try adding one of the other comparative
+    # dunder methods
+    print(F"{str(earth)=}")
+    print(F"{repr(earth)=}")
+    print(F"{repr(also_earth)=}")
+    print(F"{earth < venus=}")
+    print(F"{earth < not_a_planet=}")

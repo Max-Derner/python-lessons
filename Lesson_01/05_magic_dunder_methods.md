@@ -1,10 +1,10 @@
 ```
- __  __             _        ____                  _           
-|  \/  | __ _  __ _(_) ___  |  _ \ _   _ _ __   __| | ___ _ __ 
-| |\/| |/ _` |/ _` | |/ __| | | | | | | | '_ \ / _` |/ _ \ '__|
-| |  | | (_| | (_| | | (__  | |_| | |_| | | | | (_| |  __/ |   
-|_|  |_|\__,_|\__, |_|\___| |____/ \__,_|_| |_|\__,_|\___|_|   
-              |___/                                            
+ __  __             _         ______                  _           
+|  \/  | __ _  __ _(_) ___   / /  _ \ _   _ _ __   __| | ___ _ __ 
+| |\/| |/ _` |/ _` | |/ __| / /| | | | | | | '_ \ / _` |/ _ \ '__|
+| |  | | (_| | (_| | | (__ / / | |_| | |_| | | | | (_| |  __/ |   
+|_|  |_|\__,_|\__, |_|\___/_/  |____/ \__,_|_| |_|\__,_|\___|_|   
+              |___/                                               
  __  __      _   _               _     
 |  \/  | ___| |_| |__   ___   __| |___ 
 | |\/| |/ _ \ __| '_ \ / _ \ / _` / __|
@@ -181,7 +181,7 @@ TypeError: unsupported operand type(s) for <: 'Planet' and '<class 'str'>'
 
 ## `__hash__(self)`
 
-This one's important if you wish to store your object in a set or as the key for a dictionary. It can feel a bit scary but it's quite simple and there's only one rule.
+This one's important if you wish to store your object in a set or as the key for a dictionary. It can feel a bit scary but it's quite simple (since you just use the built in function `hash()`) and there's only one rule.
 
 | **RULE 1** |
 |------------|
@@ -200,14 +200,16 @@ So, say we had constructed an `__eq__` method to only compare position since two
 
 output:
 ```
+Python 3.12.4 (main, Jun  6 2024, 18:26:44) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
 >>> from Lesson_01.section_05_supplements.planetary_code import Planet
 >>> earth = Planet('Earth', 17394, 3728943, -3272672)
->>> not_a_planet = "I'm not a planet!"
 >>> le_earth = Planet('Le Earth', 17394, 3728943, -3272672)
->>> earth == not_a_planet
-False
+>>> moon = Planet('Moon', 17394, 3728943, -3272600)
 >>> earth == le_earth
 True
+>>> earth == moon
+False
 ```
 
 Then the hash should **_only_** encompass the values used in equality comparison. You then simply pass your values (typically as a tuple) into the `hash` built-in function, like so:
@@ -222,10 +224,13 @@ output
 >>> from Lesson_01.section_05_supplements.planetary_code import Planet
 >>> earth = Planet('Earth', 17394, 3728943, -3272672)
 >>> le_earth = Planet('Le Earth', 17394, 3728943, -3272672)
+>>> moon = Planet('Moon', 17394, 3728943, -3272600)
 >>> hash(earth)
 -3483197386213214705
 >>> hash(le_earth)
 -3483197386213214705
+>>> hash(moon)
+-7066814230973084859
 ```
 
 I've left you the `Planet` in [planetary_code.py](./section_05_supplements/planetary_code.py) along with some of the example code run.

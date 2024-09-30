@@ -36,6 +36,7 @@ class Counter:
         self._count += 1
 
 
-my_counter = Counter(0)
-print(my_counter.view_count())
-print(my_counter.count())
+if __name__ == "__main__":
+    my_counter = Counter(0)
+    print(my_counter.view_count())
+    print(my_counter.count())
