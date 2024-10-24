@@ -67,7 +67,8 @@ Note:
 * both private methods and private variables are named with a leading underscore.  
 * constants are declared in `SCREAMING_SNAKE_CASE`
 * a default value for an argument is declared with `=` in the method signature
-    * Do be careful with default values, default values should never be mutable else you will get unexpected results. [See example](./section_01_supplements/default_args_example.md)
+    * Do be careful with default values, default values should never be mutable else you will get unexpected results ([see example](./section_01_supplements/default_args_example.md)).
+    * The only built-in mutable types are `dict`, `list`, and `set`, if you're trying to use a mutable type set the default value to either `None` or `...`, detect that in the method then create a new instance of the mutable type within the method itself.
 * docstrings are
     * declared as a string with 3 times the number of double quotes a regular sting is
     * declared immediately beneath either the class signature or method signatures

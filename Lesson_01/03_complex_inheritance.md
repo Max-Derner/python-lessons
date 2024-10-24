@@ -68,18 +68,21 @@ class Eagle:
         print("Flying!")
 ```
 
-Now say we want to inherit from both to make a `Hippogriff`. We've got a couple of problems...
+Now say we want to inherit from both to make a `Hippogriff` like this:
+```python
+class Hippogriff(Horse, Eagle):
+    # No idea what to put in here yet
+    pass
+```
+
+Well, we've got a couple of problems...
 * what noise will a `Hippogriff` make?
 * how do we invoke both parents `__init__` methods to ensure we get 4 legs and 2 wings?
 
 # What noise does a `Hippogriff` make?
 
-So, in Python you have the concept of a "Method Resolution Order" (or "MRO"). This refers to the order in which parent classes are searched in order to find a method. You can view the MRO with the following code:
+So, in Python you have the concept of a "Method Resolution Order" (or "MRO"). This refers to the order in which classes are searched in order to find a method. You can view the MRO with the following code:
 ```python
-class Hippogriff(Horse, Eagle):
-    # No idea what to put in here yet
-    pass
-
 print(Hippogriff.mro())
 ```
 
@@ -127,18 +130,18 @@ Funnily enough this is actually valid Python, it just doesn't follow PEP8 standa
 
 So, how are we predicting the MRO for the `I` class then? We'll just use the same logic that Python does:  
 
-Imagine we start at our class in question (`I`) with a list that only has `I` in it.  
-Next thing to do is to look at the parent declaration and inspect the first parent. This is `G`, so we add `G` on the end of the list and move onto `G`.  
-Now we're at `G` so we look at it's parents (`D` and `E`), `D` is first so we add that to the end of the list and move onto `D`.  
+Imagine we start at our class in question (`I`) with an MRO we're building up that so far only has `I` in it.  
+Next thing to do is to look at the parent declaration and inspect the first parent. This is `G`, so we add `G` on the end of the MRO and move onto `G`.  
+Now we're at `G` so we look at it's parents (`D` and `E`), `D` is first so we add that to the end of the MRO and move onto `D`.  
 `D` has parent `B` so add `B` and move onto `B`.  
 `B` has parent `A` so add `A` and move onto `A`.  
-Now we don't have anywhere else to go, so we backtrack.  
+Now we don't have anywhere else to go, so we backtrack to.  
 We go back to `B`, we've explored all of `B`s parents, so we back track further to `D`.  
-Same situation, so we back track to `G`. Now at `G` we have the unexplored parent `E`, so we add `E` to the end of the list and move onto it.  
-Now `E` has two parents and the first declared is `B`, but `B` is already in the list, we just move it to the end of the list and move onto it.  
-`B` has parent `A` and `A` is in the list so we move it to the end of the list and move onto `A`.  
+Same situation, so we back track to `G`. Now at `G` we have the unexplored parent `E`, so we add `E` to the end of the MRO and move onto it.  
+Now `E` has two parents and the first declared is `B`, but `B` is already in the MRO. Since we can't have parents earlier in the MRO than it's children, we move it to the end of the MRO and move onto it.  
+`B` has parent `A` and `A` is in the MRO so we move it to the end of the MRO and move onto `A`.  
 Now we don't have anywhere else to go, so we backtrack.  
-We go back to `B`, we've explored all of `B`s parents, so we back track further to `E`.  
+We go back to `B`, we've resolved all of `B`s parents, so we back track further to `E`. `E` has a parent `C` which appears earlier in the MRO, so that needs to move to the end and get's it's parents resolved again.  
 
 This just goes on and on and on until we finish. It's not a particularly efficient algorithm but it provides clear and predictable MROs.
 Just to show the full search (with a slightly less wordy explanation), I've popped that on [a separate page](./section_03_supplements/mro_construction_pattern.md) for you to look at and I've visually drawn it out here:  
@@ -169,7 +172,7 @@ class Hippogriff(Horse, Eagle):
         Horse.__init__(self)
         Eagle.__init__(self)
 ```
-Here, we are explicitly calling the member functions of `Horse` and `Eagle` as sort of static methods, but since we pass our class in as the `self` parameter, it acts on our class.
+Here, we are explicitly calling the member functions of `Horse` and `Eagle` as sort of static methods, but since we pass our instance in as the `self` parameter, it acts on our instance.
 
 # Well what if you need some bits from one `__init__` and some from another but both will overwrite the other?
 

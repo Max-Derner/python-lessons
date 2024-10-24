@@ -27,7 +27,7 @@ if __name__ == "__main__":
     a = Demo('a')
     print_all(a)
 
-    print("=== Changing variables with respect to class ===")
+    print("=== Modifying variables with respect to class ===")
     Demo.an_int += 99
     Demo.a_list.append('b')
 
@@ -40,14 +40,20 @@ if __name__ == "__main__":
     c = Demo('c')
     print_all(a, b, c)
 
-    print("=== Changing variables with respect to instance 'a' ===")
+    print("=== Modifying variables with respect to instance 'a' ===")
     a.an_int += 72
     a.a_list.append('c')
 
     print_all(a, b, c)
 
-    print("=== Changing variables with respect to class ===")
-    Demo.an_int += 60
-    Demo.a_list.append('bee')
+    print("=== Reassigning variables with respect to instance 'a' ===")
+    a.an_int = 42
+    a.a_list = ['aye', 'bee', 'sea']
+
+    print_all(a, b, c)
+
+    print("=== Reassigning variables with respect to class ===")
+    Demo.an_int = 60
+    Demo.a_list = ['w', 'h', 'a', 't', '?']
 
     print_all(a, b, c)

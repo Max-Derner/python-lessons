@@ -12,5 +12,6 @@ So, last time we learnt a little about a lot. Today we're just going to add a bi
 * how to define classes
 * inheritance
 * magic methods/dunder methods
+We're not covering abstract base classes, that would warrant it's own lesson.
 
 [Let's get started!](./01_basic_class_structure.md)

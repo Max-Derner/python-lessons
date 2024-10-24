@@ -38,32 +38,32 @@ So the way that the MRO is constructed is like so:
 | A | add and backtrack | I, G, D, B, A |
 | B | backtrack | I, G, D, B, A |
 | D | backtrack | I, G, D, B, A |
-| G | backtrack | I, G, D, B, A |
+| G | inspect unexplored parent | I, G, D, B, A |
 | E | add and move on | I, G, D, B, A, E |
-| B | move parent to end of MRO and move on | I, G, D, A, E, B |
-| A | move parent to end of MRO and backtrack | I, G, D, E, B, A |
+| B | move to end of MRO and move on | I, G, D, A, E, B |
+| A | move to end of MRO and backtrack | I, G, D, E, B, A |
 | B | backtrack | I, G, D, E, B, A |
-| E | backtrack | I, G, D, E, B, A |
+| E | inspect unexplored parent | I, G, D, E, B, A |
 | C | add and move on | I, G, D, E, B, A, C |
-| A | move parent to end of MRO and backtrack | I, G, D, E, B, C, A |
+| A | moveto end of MRO and backtrack | I, G, D, E, B, C, A |
 | C | backtrack | I, G, D, E, B, C, A |
 | E | backtrack | I, G, D, E, B, C, A |
 | G | backtrack | I, G, D, E, B, C, A |
-| I | backtrack | I, G, D, E, B, C, A |
+| I | inspect unexplored parent | I, G, D, E, B, C, A |
 | H | add and move on | I, G, D, E, B, C, A, H |
-| E | move parent to end of MRO and move on | I, G, D, B, C, A, H, E |
-| B | move parent to end of MRO and move on | I, G, D, C, A, H, E, B |
-| A | move parent to end of MRO and backtrack | I, G, D, C, H, E, B, A |
+| E | move to end of MRO and move on | I, G, D, B, C, A, H, E |
+| B | move to end of MRO and move on | I, G, D, C, A, H, E, B |
+| A | move to end of MRO and backtrack | I, G, D, C, H, E, B, A |
 | B | backtrack | I, G, D, C, H, E, B, A |
-| E | backtrack | I, G, D, C, H, E, B, A |
-| C | move parent to end of MRO and move on | I, G, D, H, E, B, A, C |
-| A | move parent to end of MRO and backtrack | I, G, D, H, E, B, C, A |
+| E | resolve parent being too early in MRO | I, G, D, C, H, E, B, A |
+| C | move to end of MRO and move on | I, G, D, H, E, B, A, C |
+| A | move to end of MRO and backtrack | I, G, D, H, E, B, C, A |
 | C | backtrack | I, G, D, H, E, B, C, A |
 | E | backtrack | I, G, D, H, E, B, C, A |
-| H | backtrack | I, G, D, H, E, B, C, A |
+| H | inspect unexplored parent | I, G, D, H, E, B, C, A |
 | F | add and move on | I, G, D, H, E, B, C, A, F |
-| C | move parent to end of MRO and move on | I, G, D, H, E, B, A, F, C |
-| A | move parent to end of MRO and backtrack | I, G, D, H, E, B, F, C, A |
+| C | move to end of MRO and move on | I, G, D, H, E, B, A, F, C |
+| A | move to end of MRO and backtrack | I, G, D, H, E, B, F, C, A |
 | C | backtrack | I, G, D, H, E, B, F, C, A |
 | F | backtrack | I, G, D, H, E, B, F, C, A |
 | H | backtrack | I, G, D, H, E, B, F, C, A |

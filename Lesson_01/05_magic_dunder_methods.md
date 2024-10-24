@@ -17,8 +17,8 @@ So, these are more commonly called "dunder methods" (which is a contraction of d
 # What are they?
 So, first off. I'm going to exclusively refer to these as dunder methods because that's what I've always known them as.  
 Dunder methods basically represent all the ways to interact with a class _outside_ of dot notation. So, we've seen one already and that is `__init__`, you don't use dot notation to call this method you just issue `MyClass()`. We already know more than enough about the `__init__` method, so I will only cover it very very briefly here.
-
 All the class dunder methods are described in [the documentation here](https://docs.python.org/3/reference/datamodel.html#special-method-names). What follows is what I consider to be the most useful dunder methods and is by no means an exhaustive list.
+
 
 ## `__init__(self, optional_arguments)`
 This method is used to set an initial state for an instance. You should define instance variables in here using the `self` keyword.
@@ -234,5 +234,9 @@ output
 ```
 
 I've left you the `Planet` in [planetary_code.py](./section_05_supplements/planetary_code.py) along with some of the example code run.
+
+# Is there more?
+You wouldn't believe how much more there is to dunder methods, definitely [check out the docs](https://docs.python.org/3/reference/datamodel.html#special-method-names). Some of my favorites are the [numerical emulators](https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types) which allow you to use mathematical operators on your classes like `Earth + Moon` or `Earth / Moon` and other such clever-clogs stuff.
+
 
 ### Let's [wrap this up!](./06_closing_remarks.md)
