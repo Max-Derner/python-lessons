@@ -14,7 +14,7 @@ Getters and setters go like this:
 class GettingAndSettingClass:
 
     def __init__(self, initial_value: int):
-        self._my_var = initial_value
+        self.my_var = initial_value
 
     @property
     def my_var(self):
