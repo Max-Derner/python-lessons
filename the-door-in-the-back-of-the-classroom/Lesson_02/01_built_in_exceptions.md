@@ -21,6 +21,7 @@ What you are most likely to encounter are:
 | TypeError | Wrong object type |
 | ValueError | Correct object type but an inappropriate value |
 | FileNotFoundError | Tried to read a non-existent file |
+| NotImplementedError | Tried to use something you haven't implemented |
 | KeyboardInterrupt | Hit `ctrl + c` |
 
 # Origin
@@ -29,4 +30,4 @@ Almost all exceptions have a common ancestor the plain `Exception` class. The ex
 
 You can both raise and catch the `Exception` but you should only catch it with great caution and you should never raise it.
 
-[Next!](./02_raising_and_catching_exceptions.md)
+# [Let's look at how to catch these exceptions](./02_raising_and_catching_exceptions.md)
