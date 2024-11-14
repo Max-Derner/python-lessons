@@ -122,7 +122,7 @@ except Exception:
 
 # Quick Tip
 
-When working with a `try`/`except` blocks, be sure to place as little as possible within the `except` block.
+When working with a `try`/`except` blocks, be sure to place as little as possible within the `try` block.
 
 
 # [Let's look at how to format the exception now we can handle it](./03_exception_formatting.md)
