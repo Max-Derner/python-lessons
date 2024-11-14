@@ -15,21 +15,14 @@
 
 # Grappling with the exception
 
-Say you've got some cool function that writes exceptions out to file, like this:
+Say you've got some function that writes exceptions out to file, like this:
 ```python
-from traceback import format_exception
-
-EXCEPTION_FILE = 'exceptions.txt'
-
-
 def exception_writer(e: Exception):
-    with open(EXCEPTION_FILE, mode='a') as f:
-        f.write(
-            '\n'.join(format_exception(e))
-        )
+    with open('exceptions.txt', mode='a') as f:
+        f.write(repr(e))
 ```
 The question stands, how on Earth do you actually get the exception in order to pass it to this function.  
-The answer is "with great ease". You simply add to the end of you `except` statement `as e` and then access the variable e which is the exception you're handling. You can call it something else instead of `e` but `e` is the tradition when writing python.
+The answer is "with great ease". You simply add to the end of you `except` statement `as e` and then access the variable `e` which is the exception you're handling. You can call it something else instead of `e` but `e` is the tradition when writing Python.
 
 Example:
 ```python
@@ -54,7 +47,7 @@ finally:
 ```
 Seems mostly reasonable, but let's dig into it a bit more and why you might decide to use the various aspects of exception handling.
 
-So, say you're parsing some text but you also want to write logs in the worst way possible by writing to a file rather than using the [`logging` library](https://docs.python.org/3/library/logging.html) like a sensible person. You might want log something to say you're starting to parse the text, log something based on success or failure, and you may wish to always declare when you have finished. Sounds a little complex to squeeze all of that in, but it can be really nice and terse code:
+So, say you're parsing some text but you're still writing logs in the worst way possible by writing to a file rather than using the [`logging` library](https://docs.python.org/3/library/logging.html). You might want log something to say you're starting to parse the text, log something based on success or failure, and you may wish to always declare when you have finished. Sounds a little complex to squeeze all of that in, but it can be really nice and terse code:
 
 ```python
 def parse_integer(txt: str) -> int | None:
@@ -70,7 +63,7 @@ def parse_integer(txt: str) -> int | None:
             logs.write("FAILED\n")  # log failure when it fails
         else:
             logs.write("SUCCESS\n")  # log success when no ValueError thrown
-            return num
+            return num  # return your value over here in the success block
         finally:
             logs.write(F"Finished parse of '{txt}'\n")  # declare finished
 ```
@@ -80,7 +73,7 @@ This code looks like it shouldn't ever actually write "Finished parse of..." but
 
 # Placing the blame
 Exceptions actually have a couple of secret attributes `__cause__` and `__context__`, and both attributes can hold extra exceptions!  
-Let's look closer. Say you have a bit of code that that raises and exception and you're trying to handle it but you get all messed up and end up raising another exception. The question then comes up "Which exception do you want to see in the traceback?", the answer that Python gives is **both**.  
+Let's look closer. Say you have a bit of code that raises an exception and you're trying to handle it but you get all messed up and end up raising another exception. The question then comes up "Which exception do you want to see in the traceback?", the answer that Python gives is **both**.  
 Take the following code for example:
 ```python
 

@@ -17,7 +17,7 @@
 
 So, raising exceptions...
 
-Firstly, you might know this process as "throwing an error" but round these parts we "raise exceptions" them. Again, no one is going to care if you say you're throwing an error instead of raising an exception. It's all nice and easy to do too, just use the `raise` keyword and pass a little message into the initialiser, like so:
+Firstly, you might know this process as "_throwing an error_" but in Python parlance it's actually "_raising an exception_". No one really cares though, so call it what you want. Anyway, it's all nice and easy to do too, just use the `raise` keyword and pass a little message into the initialiser, like so:
 
 ```python
 raise NotImplementedError("You'll need to actually write something for this")
@@ -30,7 +30,7 @@ def positive_number_gate(item):
         isinstance(item, int)
         or isinstance(item, float)
     ):
-        raise TypeError(F"item: {repr(item)} is not an int of float")
+        raise TypeError(F"item: {repr(item)} is not an int or float")
     if item < 0:
         raise ValueError(F"item: {repr(item)} is not a positive number")
 ```
@@ -52,10 +52,7 @@ except:
     print("Whoops! Something has gone wrong!")
 ```
 [code in `bare_except.py`](./section_02_supplements/bare_except.py)  
-Very boring, not a lot you can do with that **and** it's against PEP8 standards to have a "bare `except`".
-
-**N.B.** You cannot have a lone `try` block, you _must_ pair it with an `except` block!  
-Instead, you should use:
+Very boring, not a lot you can do with that **and** it's against PEP8 standards to have a "bare `except`". Instead, you should use:
 ```python
 except Exception:
 ```
@@ -100,25 +97,28 @@ except ValueError:
 [code in `multiple_except_diverse_handling.py`](./section_02_supplements/multiple_except_diverse_handling.py)
 
 ## Re-raising the error
-Say you only want to use the except block to finish up a couple of bits before letting the script crash, like flushing out some file writes and closing those files. Well we can re-raise the error by calling a plain `raise` inside the except block, like so:
+Say you're writing logs to a file directly instead of using the [`logging` library](https://docs.python.org/3/library/logging.html) like a sensible person and you both want to be able to log that an exception has occurred and allow it to bubble up and crash the system. Well it is possible to re-raise an exception after you have caught it.
 
 ```python
-# open file
-file_stream = open('test.txt', mode='w')
-try:
-    # attempt writing into file while doing
-    # dodgy stuff that might raise an error
-    file_stream.write('hello\n')
-    file_stream.write('trying to split self\n')
-    positive_number_gate("I ain't no number!")
-    file_stream.write('successfully split self\n')
-except Exception:
-    # upon catching error, gracefully flush and close the file_stream
-    file_stream.flush()
-    file_stream.close()
-    # then re-raise the error
-    raise
+nums_to_sum = [1, 10, 100, "1", 42, 999]
+
+with open("logs.txt", mode='a') as logs:  # get our log file going
+    try:
+        # do a bunch of stuff
+        logs.write("Starting work\n")
+        sum_of_nums = 0
+        nums_summed = 0
+        for num in nums_to_sum:
+            logs.write(F"Adding {num=}, {nums_summed=}\n")
+            sum_of_nums += num
+            nums_summed += 1
+        logs.write("Finished work successfully\n")
+    except Exception:
+        # if anything goes wrong, write that to file
+        logs.write(F"Failed work after summing {nums_summed} nums\n")
+        raise  # get that exception back out in the wild
 ```
+[code in `re_raise.py`](./section_02_supplements/re_raise.py)
 
 # Quick Tip
 
