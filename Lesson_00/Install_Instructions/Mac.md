@@ -9,6 +9,3 @@ Once you got homebrew installed, you can just give commands like:
 ```
 brew install python@3.12
 ```
-
-## Apologies
-I'm super sorry, I've never used a Mac. I know the above works but it does give you an extra package manager to manage.
