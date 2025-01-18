@@ -22,4 +22,9 @@ class MyCustomError(Exception):
 ```
 `MyCustomError` has just inherited everything from `Exception` so you now treat it the same way you would any other exception. Do note that the class name doesn't end in `Exception` but instead ends in `Error`, this is traditional in Python and is just keeping up with all the other exceptions you're likely to see.
 
-[Let's look at what to do if handling your exception causes another exception](./05_raising_a_new_exception_from_an_old_one.md)
+A slightly nicer way of doing this though is to explain where you should expect this new exception to be raised in a docstring! like so:  
+```python
+class MyCustomError(Exception):
+    """A custom exception which is raised when thromdiculating the
+    eldenburge fails"""
+```

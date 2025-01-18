@@ -71,10 +71,62 @@ import json
 my_json_string = json.dumps(some_python_dictionary)
 ```
 Imports can be done anywhere in your code, but traditionally they're done at the top of the file.  
-There's many styles of and ways to import, but we'll come around to that in a future lesson. For now, this'll get your code going.
+
+## Importing libraries well
+So, you never ever import multiple libraries on one line like this:
+```python
+import json, pprint
+```
+This makes broken libraries and modules a pain to get figured out. So you do this:
+```python
+import json
+import pprint
+```
+You can also alias a library if you get sick of writing out the full name every time:
+```python
+import json as js
+js.dumps(some_python_dictionary)
+```
+If you don't want all of a library, you can import just little bits of it. So, instead of this:
+```python
+import time
+print("Hold on...")
+time.sleep(1)
+print("The epoch time is:")
+print(time.time())
+```
+You can do this:
+```python
+from time import time, sleep
+print("Hold on...")
+sleep(1)
+print("The epoch time is:")
+print(time())
+```
+In this situation, we're only importing one module on the one line so it's allowed, but you can break that import across multiple lines if you like:
+```python
+from time import (
+    time,
+    sleep,
+)
+print("Hold on...")
+sleep(1)
+print("The epoch time is:")
+print(time())
+```
+You can even alias the individual items you're importing from that module/library:
+```python
+from time import (
+    time,
+    sleep as zzz,
+)
+print("Hold on...")
+zzz(1)
+print("The epoch time is:")
+print(time())
+```
 
 # Actually running some code
-As a bare minimum until we dig in next lesson...  
 Just slap some code in a `.py` file (e.g. `my_code.py`) and then pass the filepath into the `python3` command.  
 e.g. `python3 my_code.py`  
 
@@ -82,7 +134,7 @@ If you've got your venv active then you can just give the command `python my_cod
 Don't worry too much about whether you're doing it right for this lesson, as long as you get some code running that's what matters. I just want you playing around and getting to grips with the basics today, we'll bring professionalism into it later.
 
 ### Extra bit of usefulness...
-You can type code in directly against the interpreter. To do so, just type `python3` (or simply `python` with a venv active).  
+You can type code in directly against the interpreter in the REPL (Read Evaluate Print Loop). To do so, just type `python3` (or simply `python` with a venv active).  
 This can be a little tricky as it doesn't really have code-completion or suggestions.  
 **N.B.** To exit the interpreter give it the command `exit()` (as keyboard interrupts won't work)  
 The interpreter will print out anything returned by an expression or function, as well as what is supposed to be printed to the console.

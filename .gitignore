@@ -1,5 +1,5 @@
 .vscode
 zzz/
-venv
-Cold_Store/
+lesson-venv
 **/__pycache__
+logs.txt
