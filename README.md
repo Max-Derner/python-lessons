@@ -23,4 +23,4 @@ p.s. I make no apologies for my British-isms
 # Away wi' ye!
 * [**Lesson_00**](./Lesson_00/00_lesson_intro.md): Getting a base of knowledge going that we can build on
 * [**Lesson_01**](./Lesson_01/00_lesson_intro.md): Getting to grips with classes
-* [**Lesson_03**](README.md): Exceptions (coming soon)
+* [**Lesson_02**](./Lesson_02/00_lesson_intro.md): Exceptions and exception handling

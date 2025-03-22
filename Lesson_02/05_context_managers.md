@@ -147,6 +147,7 @@ def main():
     # suppresses the exception
     print("a graceful end")
 ```
+[Code here](./context_managers_supplements/class_based_context_manager.py)
 
 So here you can see that we have created a custom class. This class defines three dunder methods `__init__()`, `__enter__()`, and `__exit__()`. The `__init__()` method is still what's used to initialise the context manager, you can see that happening in the `main()` function where it goes:
 ```python
@@ -197,6 +198,7 @@ def my_context_manager(transmission_period: timedelta = timedelta(weeks=8)):
         transmit_data(data_store.format_for_transmission())
         print("sent")
 ```
+[Code here](./context_managers_supplements/contextlib_context_manager.py)
 
 So what was in the `__init__` method before is now just the first few lines of the function:
 ```python

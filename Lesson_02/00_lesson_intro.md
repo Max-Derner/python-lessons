@@ -6,7 +6,7 @@
 |___|_| |_|\__|_|  \___/ 
 ```
 # What are we doing?
-![We're back!](../IMGS/Were_back.gif)
+![We're back!](../IMGS/batman-exception-handling.gif)
 
 Right! Today it's all about exceptions!
 
