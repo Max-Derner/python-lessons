@@ -186,5 +186,5 @@ Now `format_exception()` will format the exception to look exactly the same as w
 When working with a `try`/`except` blocks, be sure to place as little as possible within the `try` block. The above example is **not** a best practice.
 
 
-# [Let's look at how best to handle exceptions](./03_handling_exceptions.md)
+### [Let's look at how best to handle exceptions](./03_handling_exceptions.md)
 

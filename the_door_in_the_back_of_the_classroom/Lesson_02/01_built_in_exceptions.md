@@ -30,4 +30,4 @@ Almost all exceptions have a common ancestor, the plain `Exception` class. Those
 
 You can both raise and catch instances of `Exception` but you should only catch it with great caution and you should never raise it.
 
-# [Let's look at how to catch these exceptions](./02_raising_and_catching_exceptions.md)
+### [Let's look at how to catch these exceptions](./02_raising_and_catching_exceptions.md)

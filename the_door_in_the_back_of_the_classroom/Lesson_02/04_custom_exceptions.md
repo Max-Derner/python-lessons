@@ -28,3 +28,7 @@ class MyCustomError(Exception):
     """A custom exception which is raised when thromdiculating the
     eldenburge fails"""
 ```
+
+Well that was easy...
+
+### [Let's look at what a context manager is](./05_context_managers.md)

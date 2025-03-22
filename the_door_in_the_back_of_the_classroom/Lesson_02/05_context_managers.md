@@ -160,8 +160,8 @@ Then the `__enter__()` method is what defines the context managers behaviour whe
         transmission_period=timedelta(seconds=5),
     ) as data_store:
 ```
-Then the `__exit__()` method is what defines the error handling. This method does whatever you would normally do in the finally block plus deciding which exceptions to suppress. In our method we've decided to suppress any `KeyboardInterrupt` exceptions but anything else will bubble up and halt the system.  
-For clarity, suppressing an exception with your context manager still means the code exits the context manager. Ideally the way you would use this feature is that whatever you return from the `__enter__` method would have a custom exception that gets caught by the `__exit__` method, this way we're saying that "If the context manager itself runs into a problem, then we can shut it down gracefully".
+Then the `__exit__()` method is what defines the way we exit the `with` block, it also defines any optional error handling. This method does whatever you would normally do in the finally block plus deciding which exceptions to suppress. In our method we've decided to suppress any `KeyboardInterrupt` exceptions but anything else will bubble up and halt the system.  
+For clarity, suppressing an exception with your context manager still means the code exits the `wih` block. Ideally the way you would suppress exceptions is that whatever you return from the `__enter__` method would have a custom exception that gets caught by the `__exit__` method, this way we're saying that "If the resource provided by the context manager runs into a problem, then we can shut it down gracefully".
 
 
 Hopefully, you can see why I quite like the class based context manager. You have 3 separate methods which all have very clear and distinct roles, and there is no need anything too complex. Let's compare this to the function based context manager.
@@ -232,4 +232,10 @@ Now we need to define the behaviour of our error handling which can be a bit awk
         print("sent")
 ```
 
+# Closing remarks
 
+Context managers are a fairly advanced topic in Python so no stress if you don't get it right away.
+
+Context managers are also not just for fancy error handling, you can use them to hand out resources in a nice clean way that responsibly cleans things up when you're done with them. All our code in the `__exit__` method (for class based) and the `finally` block (for function based) will still be executed upon exiting the `with` block regardless of whether or not an exception is raised.
+
+### [Let's go wrap up and finish for the day](./06_le_fin.md)

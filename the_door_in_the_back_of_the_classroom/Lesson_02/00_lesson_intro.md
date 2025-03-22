@@ -15,3 +15,5 @@ Right! Today it's all about exceptions!
 * how to catch an exception
 * how to create a custom exception
 * context managers
+
+### [Let's crack on with our lesson](./01_built_in_exceptions.md)

@@ -199,3 +199,6 @@ def put_record(data):
 So you can see here, we'll always send out a `PutDataError` if things fail, but upon inspection you will be able to gleam the underlying issue as it will be named the "direct cause" of the `PutDataError`. This makes catching exceptions raised out of our `put_record` really simple and easy whilst not making it difficult to pin-point the precise issue   
 
 This code is available to mess around with [here](./handling_exception_supplements/database_example.py). It imports code from [here](./handling_exception_supplements/database.py). At this point in our lessons you should be able to understand it all except for maybe the `global` keyword and the RegEx stuff.
+
+
+### [Let's look at how to define custom exceptions](./04_custom_exceptions.md)
