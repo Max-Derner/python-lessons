@@ -7,7 +7,7 @@ __     __         _       _     _
 ```
 # Naming Variables
 Variable names follow `snake_case`  
-Constants are in `SCREAMING_SNAKE_CASE`  
+Global constants declared at the top of the file are in `SCREAMING_SNAKE_CASE`  
 Privates have a `_leading_underscore`  
 
 | **WARNING** |
@@ -15,8 +15,8 @@ Privates have a `_leading_underscore`
 | The Python interpreter could not care less about what's private or constant and will glady let you import a private variable from wherever and change a constant. This naming convention is just for IDEs and devs, so the whole thing operates on scouts honour. |
 
 # Quick Note on the Typing System
-Python is dynamically typed and strongly typed. So, variables can change types willy-nilly (dynamic) but using an incompatible type will throw an error (strong).  
-We don't have to declare types, but we can do type hinting though - again - the interpreter doesn't give a damn about type hints, they're just for IDEs and devs. We'll get to type hints later since they could be their own entire lesson.
+Python is dynamically typed and strongly typed. So, variables can change types willy-nilly (dynamic) but using an incompatible type will throw an error (strong). Having said that there are exceptions, like if you do maths between an int and a float it'll work and you'll get a float out of it.  
+We can't declare types, but we can do type hinting - again - the interpreter doesn't give a damn about type hints, they're just for IDEs and devs. We'll get to type hints later since they could be their own entire lesson.
 
 # Booleans
 You've got `bool`.  
@@ -35,7 +35,7 @@ my_none_type = None
 # Numbers
 
 ## Whole numbers
-You've got `int`, no long, no short, no int32.  
+You've got `int`, no long, no short, no int32, no unsigned anything.  
 Declare it by assigning a number without a decimal place:
 ``` python
 my_int = 1
@@ -45,7 +45,7 @@ e.g.
 ``` python
 my_big_int = 1_000_000
 ```
-The upper bound of integers is limited by memory, they are theoretically unbound. So you don't have to worry about overflow issues here.  
+The upper bound of integers is limited by memory and are theoretically unbound. So you don't have to worry about overflow issues here.  
 Example:
 ```
 Python 3.12.4 (main, Jun  6 2024, 18:26:44) [GCC 11.4.0] on linux
@@ -54,12 +54,12 @@ Type "help", "copyright", "credits" or "license" for more information.
 1861919823602446870051646947443265806218680881620164150161309755333181392347475969737916885903925979688282376725245050928552019850699830936678289110574564545897808148390669479768088103164174862614314896361751492419355200744919106773071079582599147802839706215610874713577461171484389014531465527630202236883843662826326484204605969450292309212479576754101484210438029392847117393209646612418243468945316443055403112189769994194382253211069075682210324665380367163398351260390065146550963353638226230571087153090476005831034463871223599543367440127371321307935600294235235555686651194174520755709233252147269712646152398661272615394330256766919854213808655136454478279520538925315159120689449046824765276993871084725126289174642261134186532952389529497451225294280309592333118547431857834022107299493307642886550035108349812538868548204110949267007844894921304724439232280030484032946555862021618822463975371563390466476093942333021906014621095132521668771544547398222309222385454252810109269995041305909748903485123565191403462125774254093965366838199092942669763234497755795922782368415391408328615941087687168142703569478330639528167193433105543630476588701348505543567751790789117717660152741734303989082897740369036292716627460893145378475903236426283709902853825833522685221030263417298462852391838147572583018386475574242223720125609852369550108535609838296845885540331405153336504029657425852682616998765068978970510668576704757343969900471616618487531217423608126248306049345412199702325217046285213249285846153975313978242675003402962824121160875928608618335006217051712260195130737083017631349816669929159176667868417353866905513835554999462637481342721400975639504482716709384155856026263304270260886740810287158032302083388891446551907198669473320114371718138443660594911466234734942910722449045244457975320043694169261701681656148362205170532994281152576853709669767416127252738437485793910219846836498268031157261792859230067295449184914230926461991700842371010236588596679342492743911615365711320743215987995901101163306076544568626531198809370907612331483471833845958618077480217892890533116603350040147116218227928732817945323636422047507156427135297222275812678187736036773320854938458989641651199078792658709405149957007882875374868180442468709128120647047303125901843060904208622152998500617510802742432155144605848971282208131749602408191808406410632175265171306237793956570406435402345476628467209068729893134433124291187516075267594298323098487990166243403468912628117388443154921474663149036640983804471509564893426039130480070632369458141251485052936042164865777219873983089572387511794739572152294019631222145910901210840561445507713655658889336373566800391206925212386456974315749376
 ```
 ## Decimals
-You've got `float`, no doubles, no float64.  
+You've got `float`, no doubles, no float64, and still nothing unsigned.  
 Declare it by assigning a number with a decimal place:
 ``` python
 my_float = 1.0
 ```
-Floats **are** limited by your system architecture, you'll get 32bit floats on a 32bit system etc. So please do feel free to worry about this one.
+Floats **are** limited by your system architecture, you'll get 32bit floats on a 32bit system etc. So please do feel free to worry about the level of precision you can get out of this one.
 
 # Text
 There's just `str`ings, there's no chars.  
@@ -68,7 +68,7 @@ Declare it by assigning something between quotes:
 my_str = "Hello World!"
 my_other_str = 'Hello Galaxy!'
 # The following two can start and end on different lines
-# and will include any line feeds you put in them
+# and will include any line breaks you put in them
 my_str_which_is_usually_reserved_for_doc_strings = """Hello Universe!"""
 my_str_which_is_quite_uncommon = '''Hello Multiverse!'''
 ```
@@ -80,11 +80,11 @@ We'll see docstrings later in this lesson, so don't fret if you didn't understan
 | discern if substring in str | `substring in my_str` | returns either `True` or `False` **AND** substring can be any length including 0 or 1 |
 | concatenate 2 strings | `str1 + str2` | returns new string |
 | | `str1 += str2` | modifies `str1` |
-| | `'some text ' 'some more text'` | returns new string - very useful for abiding by the line length PEP8 standard (see example below) |
+| | `'some text ' 'some more text'` | no operator between them - returns new string - very useful for abiding by the line length PEP8 standard (see example below) |
 
 So, at some point you will want to use a very long string but PEP8 will shout at you for it:
 ```python
-my_string = "The quick brown fox jumps over the lazy dog, passes to the snowman and goooooaaaallll!"
+my_string = "The quick brown fox jumps over the lazy dog, passes to the snowman and goooooooaaaallll!"
 ```
 PEP8 flags that up because it's too bloody long. The solution, wrap it up in a set of parentheses and then do that last concatenation technique:
 ```python
@@ -93,12 +93,12 @@ my_string = (
     " passes to the snowman and goooooaaaallll!"
 )
 ```
-Smashing!
+Smashing! You get "inferred line continuation" inside any type of brackets
 
 
 # Containers
 _**QUICK NOTE:**_ Any of the objects under this section (and strings as it happens) can have their length checked by passing them into the `len()` function.  
-_**SECOND QUICK NOTE:**_ These objects can't be copied with `my_copy = your_copy`, it has to be `my_copy = your_copy.copy()` but this is only a shallow copy, deep copies will come in a later lesson.  
+_**SECOND QUICK NOTE:**_ These objects can't be copied with `my_copy = your_copy`, it has to be `my_copy = your_copy.copy()` but this is only a shallow copy, deep copies will come in a later lesson. This is because you copy the container but containers are just filled with pointers so they still point to objects "held" in the other container.  
 
 
 ## Key-Value Pairs (`dict`)
@@ -124,6 +124,7 @@ my_dict = {}  # empty
 ### Additional notes
 Dictionaries don't have a fixed length, and can contain any mix of types for both keys and values.  
 Keys must be unique and hashable, to check if something is hashable use a CLI interpreter to pop it into the `hash()` function (e.g. `hash('HASH ME!')` ) as unhashable types throw errors.  
+The `.keys()` and `.values()` methods both return "view" objects which update when you update the dictionary.  
 
 ## Value only, duplicates allowed (`list`)
 There's only `list`, no arrays, no vectors.  
@@ -141,6 +142,7 @@ my_list = []  # empty
 ||`list1.extend(list2)` | modifies list1 |
 | remove index | `del my_list[index]` ||
 | remove value | `my_list.remove(value)` | Only removes first instance of value **AND** throws error if value not present |
+| remove and return last value | `my_list.pop()` | can supply an index in there if you like, throws errors if can't pop |
 | sort list | `my_list.sort()` | sorts in place |
 | reverse list | `my_list.reverse()` | reverses in place |
 | discern if value in list | `value in my_list` | returns either `True` or `False` |
@@ -161,15 +163,18 @@ my_set = set()  # empty, remember {} is empty dict
 | add value | `my_set.add(value)` | |
 | remove value | `my_set.discard(value)` | doesn't throw error if value not present |
 | discern if value in set | `value in my_set` | Returns either `True` or `False` |
+| common items between sets | `set1 & set2` | returns a new set and so you can chain this with other sets |
+| items exclusive in only one of the sets | `set1 ^ set2` | returns a new set and so you can chain this with other sets |
 
 ### Additional notes
-Sets don't have a fixed length, and can contain a mix of types (so long as they're hashable but we'll get to that later).  
+Sets don't have a fixed length, and can contain a mix of types so long as they're hashable.  
 Sets don't maintain order, so you can't access a specific element.  
 
 # Truthy/Falsy
-There are truthy/falsy values in Python. Everything is truthy unless it's; zero, None, False, or empty.  
+Everything is truthy unless it's; zero, None, False, or empty.  
 
-There is a really cool thing you can do in Python with Truthy/Falsy assignment. You can chain variables with the `or` keyword and the first one to not be Falsy is what will be assigned.
+This allows `and` and `or` boolean statements to work in a super cool way. They don't actualy return `True` or `False`! The `or` statement returns the first truthy value, and the `and` statement returns the first falsy value.
+
 e.g.
 ``` python
 my_list = []
@@ -178,11 +183,13 @@ my_int = 42
 my_float = 3.9
 
 something_truthy = my_list or my_dict or my_int or my_float
+something_falsy = my_int and my_float and my_list and my_dict
 ```
-`something_truthy` will take on the value of `42` as everything before it was Falsy.
+`something_truthy` will take on the value of `42` as everything before it was falsy.  
+`something_falsy` will take on the value `[]` as everything before it was truthy.  
 
-# Declaring Types!
-So this is another thing the interpreter doesn't care about. Declare it one way and assign it the other, interpreter don't mind. A well set up IDE will help you keep to the declared types but really this is for you and the other devs working on your code.  
+# Declaring Types! (sort of)
+So this is another thing the interpreter doesn't care about. Declare it one way and assign it the other, interpreter don't mind. A well set up IDE (or standalone typechecker) will help you keep to the declared types but really this is for you and the other devs working on your code.  
 
 You've already seen all the types because I formatted them as inline code to cement it in your brain before you got here.  
 So it goes like this:
@@ -196,18 +203,10 @@ If you want to declare the content of a container, you get:
 ``` python
 my_list: list[str] = ['this', 'is', 'cool']
 my_dict: dict[int, str] = {1: 'one', 2: 'two'}
-# N.B. You can't do it this way in Python3.8 but that's deprecated in two months anyway (Oct 2024)
+# N.B. You can't do it this way in Python3.8 but that's long deprecated
 ```
 
-Say you want to state a variable can take one value **_or_** another, it depends on the runtime version.  
-Pre 3.10:
-``` python
-from typing import Union
-
-my_list = list[Union[int, str]] = [5, 4, 3, 2, 1, 'blast off!']
-```
-
-3.10 and beyond:
+Say you want to state a variable can take one value **_or_** another, just use the pipe.  
 ``` python
 my_list = list[int | str] = [5, 4, 3, 2, 1, 'blast off!']
 ```
