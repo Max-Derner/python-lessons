@@ -18,7 +18,7 @@ If you get back something like `Python 3.12.4` then you're all set.
 If not, give one of these a go:
 * [Windows](./Install_Instructions/Windows.md)
 * [Mac](./Install_Instructions/Mac.md)
-* [WSL (Ubuntu)](./Install_Instructions/WSL.md)
+* [Linux/WSL](./Install_Instructions/WSL.md)
 
 **N.B.** For learning, just install the latest version available. If you're on a project, bloody well use what they tell you to use!!
 
@@ -33,7 +33,7 @@ Pick VSCode or PyCharm.
 This is all readability stuff and does not impact how the code runs. We'll go over it together in a future lesson but if you want to look it up yourself it all comes under the [PEP8 standards](https://peps.python.org/pep-0008/).
 
 # Setting up a venv
-So real quick, a venv is a `v`irtual `env`ironment. It isolates your Python version and installed libraries from other projects and more importantly - your base Python installation. If you install libraries against your base Python version, other projects will need to account for having that library installed when they install dependencies, this will break a lot of stuff.  
+So real quick, a venv is a `v`irtual `env`ironment. It isolates your Python version and installed libraries from other projects and more importantly - your base Python installation. In Python you don't get to have multiple versions of each transient dependency installed, you get one version and everything has to agree on it. So if you install libraries against your base Python version, other projects will need to account for having that library installed when they install dependencies, this will break a lot of stuff.  
 
 To create a venv called "my-cool-venv" (assuming you have Python installed now), you run:
 ``` bash
@@ -49,6 +49,16 @@ Then you have to run:
 my-cool-venv\Scripts\activate
 ```
 If you are on Windows, I totally recommend using WSL by the way. It puts a little Linux right inside your machine which is just beautiful <3
+
+### Check you're in a venv
+If you ever want to double check which venv you've got active just give the command:
+```bash
+which python
+```
+this should show the locally installed Python binary in your venv, if it doesn't then you've not got your venv active:
+```bash
+/home/maxwell/Programming/python-lessons/lesson-venv/bin/python
+```
 
 # Installing 3rd party libraries
 Pick one from PyPI [here](https://pypi.org/), let's say you picked `pandas`.  
@@ -133,6 +143,20 @@ e.g. `python3 my_code.py`
 If you've got your venv active then you can just give the command `python my_code.py` without specifying python**3**  
 Don't worry too much about whether you're doing it right for this lesson, as long as you get some code running that's what matters. I just want you playing around and getting to grips with the basics today, we'll bring professionalism into it later.
 
+
+Alternatively, you can slap a shebang at the top and make the file executable. e.g.
+
+```python
+#! /usr/bin/python3
+
+print('hello, world!')
+```
+```bash
+chmod +x my_code.py
+
+./my_code.py
+```
+
 ### Extra bit of usefulness...
 You can type code in directly against the interpreter in the REPL (Read Evaluate Print Loop). To do so, just type `python3` (or simply `python` with a venv active).  
 This can be a little tricky as it doesn't really have code-completion or suggestions.  
@@ -140,7 +164,7 @@ This can be a little tricky as it doesn't really have code-completion or suggest
 The interpreter will print out anything returned by an expression or function, as well as what is supposed to be printed to the console.
 
 ## One last word...
-There are many many ways to set up your Python environment. I only suggest the above as what I consider to be that with the fewest headaches. But please do take a look around at what else is on offer, you may very commonly hear of [PyEnv](https://github.com/pyenv/pyenv), [Poetry](https://python-poetry.org/docs/), and [Anaconda](https://www.anaconda.com/).
+There are many many ways to set up your Python environment. I only suggest the above as what I consider to be that with the fewest headaches. But please do take a look around at what else is on offer, you may very commonly hear of [PyEnv](https://github.com/pyenv/pyenv), [Poetry](https://python-poetry.org/docs/), [Anaconda](https://www.anaconda.com/), and [UV](https://docs.astral.sh/uv/).
 
 If you are only just getting started in Python, forget about those... then remember them much much later and look into them then.
 

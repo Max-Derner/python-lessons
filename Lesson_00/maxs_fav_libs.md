@@ -25,11 +25,18 @@ This is by no means all I would recommend you learning about but as a first toe 
 # [math](https://docs.python.org/3/library/math.html) (they did mean math***s***)
 `math` is a library which is spelt wrong. It offers some of the mathematical operations that allows Python to pass it's GCSEs and A-levels, instead of simply graduating from primary school.
 
+# [itertools](https://docs.python.org/3/library/itertools.html)
+`itertools` gives a lot of tools for working with collections of things. Want to look at every possible permutation of a list? `permutations()`! Want to look through the whole list 2 at a time? `pairwise()`! Want to loop over a collection again and again and again and again forever? `cycle()`!  
+It's cool and it's super pro
+
 # [random](https://docs.python.org/3/library/random.html)
 `random` gives you all that randomising goodness (it's **not suitable** for cryptographic functions as it's easily predictable) but for randomly selecting a user greeting or something like that, it's bloody perfect.
 
 # [time](https://docs.python.org/3/library/time.html)
 `time` is a little more complex but it gives you the `sleep` command which you might like to use here and there.
+
+# [datetime](https://docs.python.org/3/library/datetime.html)
+`datetime` - it do dates, it do times, it do datetimes
 
 # [turtle](https://docs.python.org/3/library/turtle.html)
 `turtle` is definitely not something that you will use professionally but it lets you draw by walking a turtle (who is in disguise, so definitely doesn't look like a turtle) around on a page. So it's fun to use when you're playing around and learning loops. Why not try drawing a circle with turtle?

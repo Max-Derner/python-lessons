@@ -1,9 +1,14 @@
 [<- go back](../01_set_up.md)
-# Installing Python on WSL
-Congratulations for using my favourite work set-up! Getting set up on WSL is nice and easy.  
+# Installing Python on something Linux-ish
+Congratulations for using my favourite work set-up! Getting set up on in Linux is nice and easy.  
 
 
 ## Homebrew - Current releases
+
+I think using Homebrew is pretty perfect:
+* you get to manage each Python version separately
+* you can invoke each version easily from the command line
+* you can still create project environments for each version
 
 Go [here](https://brew.sh/) and follow the instructions **_carefully!_**  
 Now, when you install Homebrew it will give you additional instructions on how to finish setup right there in the command line. It is imperative that you read all the output and follow the additional instructions or you risk not setting up homebrew right.  
