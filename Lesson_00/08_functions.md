@@ -87,7 +87,7 @@ short, long = sorting_func(['a', 'asd', 'qwerty', 'zxcvbnm'])
 For example, say we have this function:
 ```python
 def my_func(a, b, c=3, d=4, e=5):
-    print(F"{a}, {b}, {c}, {d}, {e}")
+    print(f"{a}, {b}, {c}, {d}, {e}")
 ```
 Here `a` and `b` do not have default values, so they always need to be passed in as either args or kwargs.  
 e.g.
@@ -119,8 +119,8 @@ So, when I delivered this lesson in person I was asking how you make go about ov
 Ok, so now lets say that you want a function that can accept some arbitrary parameters. You can do so like this:
 ```python
 def my_func(*args, **kwargs):
-    print(F"{args=}")
-    print(F"{kwargs=}")
+    print(f"{args=}")
+    print(f"{kwargs=}")
 ```
 When called with any number of arguments and kwarguments, you get this:
 ```
@@ -135,8 +135,8 @@ As you can see:
 This can be used in conjunction with match-case statements and docstrings to provide a fairly robust interface. Sorry we've not covered raising errors yet but we'll get to that in Lesson_02.
 
 # Wait, what are docstrings?
-Docstrings are handy little strings you can just float inside the top of your function to give other developers a bit more info in their IDE if needed when they either open the parentheses of your function or hover over it later.  
-Docstrings broadly follow markdown formatting when getting rendered but they also follow PEP8 so you can't have trailing spaces.
+Docstrings are handy little strings you can just float inside the top of your function to give other developers a bit more info.  
+Docstrings broadly follow markdown formatting when getting rendered but they also follow PEP8 so you can't have trailing spaces and you should go beyond col 72.
 
 Say we add the following docstring to our above function:
 ```python
@@ -149,12 +149,15 @@ def my_func(*args, **kwargs):
 
     e.g.
     ```python
-    >>> my_func(1, 2, 3, 4, 5, a='nine', bee=123, sea={'some': 'dictionary'})
+    >>> my_func(
+        1, 2, 3, 4, 5,
+        a='nine', bee=123, sea={'some': 'dictionary'}
+    )
     args=(1, 2, 3, 4, 5)
     kwargs={'a': 'nine', 'bee': 123, 'sea': {'some': 'dictionary'}}
     ```"""
-    print(F"{args=}")
-    print(F"{kwargs=}")
+    print(f"{args=}")
+    print(f"{kwargs=}")
 ```
 
 In VSCode, that renders as:  

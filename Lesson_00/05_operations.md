@@ -41,7 +41,7 @@ e /= f
 ```
 So, right there our equals has been replaced with an equals and an operator smushed together, and that applies for any of the operators we've seen. The two expressions above are equal.
 
-_**NOTE**_: We don't have increment and decrement operators, so you can't do a++, ++a, --a, or a--.
+_**NOTE**_: We don't have increment and decrement operators, so you can't do a++, ++a, --a, or a--. You just have to do stuff like `a += 1` or `a -= 1`.
 
 
 
@@ -69,7 +69,7 @@ Broadly speaking, you use double equals, like this:
 some_list == []  # this evaluates to True if "some_list" is an empty list
 ```
 There are occasions where you should use the keyword `is` instead of `==`. This is when you want to assert that they are the same object.  
-In Python, there is one `True`, one `False`, and one `None`. So if you're testing for equality to one of those values, you need to use the `is` keyword. So you'll end up with expressions like:  
+In Python, `True`, `False`, `None`, and `...` are all singleton objects. So if you're testing for equality to one of those values, you need to use the `is` keyword. So you'll end up with expressions like:  
 ``` python
 something is True
 something_else is None
@@ -84,6 +84,16 @@ thing_1 != thing_2
 For checking it's not the exact same object, like when you [copy a list wrong (check the "_**SECOND QUICK NOTE:**_")](./02_variables.md#collections) go for:  
 ``` python
 my_copy is not your_copy
+```
+
+
+# Comparison operations
+Nice and easy and recognisable...  
+```python
+less < more
+more > less
+more_or_equal >= less_or_equal
+less_or_equal <= more_or_equal
 ```
 
 ### [Onwards and upwards!](./06_logic_gates.md)

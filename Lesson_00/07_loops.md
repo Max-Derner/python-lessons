@@ -13,7 +13,7 @@ You declare a for loop with:
 for item in iterable:
     # do something with item
 ```
-Note the codeblock defining scope
+Note the indented codeblock defining scope
 
 So, for example if you want to do a countdown, you could do this:
 ``` python
@@ -55,7 +55,7 @@ Our while loops go:
 while condition:
     # do a thing
 ```
-So, we covered conditions in the latter part of the "[operations](./05_operations.md#boolean-operations)" section under "Boolean operations".  
+We covered conditions in the latter part of the "[operations](./05_operations.md#boolean-operations)" section under "Boolean operations".  
 You can have:
 ``` python
 While True:

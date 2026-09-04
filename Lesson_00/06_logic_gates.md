@@ -23,7 +23,8 @@ else:
 ```
 The expressions are anything that can be evaluated as "truthy/falsy".  
 Notice that we're using the 4 spaces of indentation to define scope.  
-Also notice that we don't use curly braces (`{}`) to define scope, that's done with an indented codeblock like it is everywhere else in Python.
+Also notice that we don't use curly braces (`{}`) to define scope, that's done with an indented codeblock like it is everywhere else in Python.  
+Also also notice that there's no parenthesis around the condition. It's not needed unless you are using it for implied line continuation.
 
 Example:
 ``` python
@@ -36,7 +37,7 @@ else:
 ```
 
 # match-case
-So, if you have Python3.10 or newer, you will be able to use match-case statements. Though you will likely know them as switch statements.  
+Since Python3.10 we've had match-case statements (formally `structural pattern matching`). Though you will likely look at them and go "That's a switch-case statement!", you are wrong :'(  
 They are just about my favourite thing in Python and they go like this:
 ``` python
 match object:
@@ -47,7 +48,7 @@ match object:
     case _:
         # do some default behaviour
 ```
-**N.B.** `case _:` marks the default case, **also** notice that you do not have to break between cases
+**N.B.** `case _:` marks the default case, **also** notice that you do not have to break between cases **_alsooo_** make a note, you do not get fallthrough
 
 But there's more to match-case statements!
 
@@ -61,8 +62,8 @@ incoming = {
 
 match incoming:
     case {'query_string': query, 'meta-data': meta, **kwargs}:
-        print(F"{query=}")
-        print(F"{meta=}")
+        print(f"{query=}")
+        print(f"{meta=}")
     case _:
         print("Ooops! Done biffed it!")
 ```
@@ -87,6 +88,7 @@ we get the following output:
 Ooops! Done biffed it!
 ```
 
+And I'm **STILL** not doing it justice! Make sure you read the [tutorial on match case statements](https://peps.python.org/pep-0636/).  
 Have a play around with it and see what you can do!
 
 ### Off to the [next adventure!](./07_loops.md)

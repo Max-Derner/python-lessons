@@ -150,6 +150,18 @@ my_list = []  # empty
 ### Additional notes
 Lists don't have a fixed length, and can contain any mix of types.  
 
+## Value only, duplicates allowed, but this time it's immutable (`tuple`)
+These can be a bit funny about how you declare them. You use parenthesis `()`. But remember there's that line continuation business? Well that means you have to get at least one comma in there. Also because these are immutable, you can't really do much with them but they definitely have their uses.
+
+```python
+my_tuple = (1, 2, 3)
+short_tuple = (1, )  # The comma is needed to make it a tuple, else it just returns 1
+```
+| need | command | note |
+|------|---------|------|
+| access index | `my_tuple[0]` | can negative index |
+
+
 
 ## Value only, no duplicates (`set`)
 We call this a `set`.  
@@ -189,7 +201,7 @@ something_falsy = my_int and my_float and my_list and my_dict
 `something_falsy` will take on the value `[]` as everything before it was truthy.  
 
 # Declaring Types! (sort of)
-So this is another thing the interpreter doesn't care about. Declare it one way and assign it the other, interpreter don't mind. A well set up IDE (or standalone typechecker) will help you keep to the declared types but really this is for you and the other devs working on your code.  
+So this is another thing the interpreter doesn't care about. Declare it one way and assign it the other, interpreter don't mind. A well set up IDE (or standalone typechecker) will help you keep to the declared types. But really this is for you and the other devs working on your code. Type hints also show up in `help()` output too!  
 
 You've already seen all the types because I formatted them as inline code to cement it in your brain before you got here.  
 So it goes like this:
