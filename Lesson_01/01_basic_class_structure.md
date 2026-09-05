@@ -20,12 +20,12 @@ class Basic:
 ```
 Few things to note:
 * We declare our class using the keyword `class`
-* Our classes are named in CamelCase
+* Our classes are named in PascalCase
 * The initialising function is called `__init__` (note the two underscores either side)
 * `self` acts as the variable to refer to the instance of the class itself
 * `self` must be the first argument passed into any method belonging to a class
 
-**N.B.** you don't _have_ to call the `self` keyword "self". If you replaced every instance of `self` with `this` (like the Java equivalent) nothing bad would happen, it's not even a PEP8 standard! I say nothing bad would happen, but your Python fanatic colleagues would secretly hate you forever because naming it "self" is standard procedure.
+**N.B.** you don't _have_ to call the `self` keyword "self". If you replaced every instance of `self` with `this` (like the Java equivalent) nothing bad would happen, it's not even a PEP8 standard! Well I say nothing bad would happen, but your Python fanatic colleagues would secretly hate you forever because naming it "self" is standard procedure.
 
 
 # Privates, constants, default arguments, and docstrings
@@ -40,8 +40,8 @@ class Counter:
         # private attribute
         self._count = starting_value
         # constant attributes
-        self.STARTING_VALUE = starting_value
-        self.LIMIT = limit
+        self.starting_value = starting_value
+        self.limit = limit
 
     def view_count(self) -> int:
         """returns the current count _without_ incrementing it"""
@@ -57,15 +57,14 @@ class Counter:
 
         * securely increment the count
         * safely overflow in case of limits"""
-        if self.LIMIT is not None and self._count == self.LIMIT:
-            self._count = self.STARTING_VALUE
+        if self.limit is not None and self._count == self.limit:
+            self._count = self.starting_value
         self._count += 1
 ```
 [Counter code is here](./section_01_supplements/counter_code.py)  
 
 Note:
 * both private methods and private variables are named with a leading underscore.  
-* constants are declared in `SCREAMING_SNAKE_CASE`
 * a default value for an argument is declared with `=` in the method signature
     * Do be careful with default values, default values should never be mutable else you will get unexpected results ([see example](./section_01_supplements/default_args_example.md)).
     * The only built-in mutable types are `dict`, `list`, and `set`, if you're trying to use a mutable type set the default value to either `None` or `...`, detect that in the method then create a new instance of the mutable type within the method itself.
@@ -73,7 +72,8 @@ Note:
     * declared as a string with 3 times the number of double quotes a regular sting is
     * declared immediately beneath either the class signature or method signatures
     * what shows up when hovering over the class initialisation or method call in the IDE
-    * roughly following markdown (you still can't have trailing spaces though because of PEP8)
+    * what shows up when passing that function into the `help()` builtin method  
+
 **N.B.** Remember that private functions and variables can both still be accessed from outside the class, and constants can still be changed. The interpreter is not going to stop you from doing either (which is actually handy for testing)
 
 [Next section, inheritance!](./02_inheritance.md)

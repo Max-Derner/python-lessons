@@ -34,16 +34,16 @@ class ShetlandPony(Horse):
 if __name__ == "__main__":
     print("\nBoJack the horse")
     bojack = Horse()
-    print(F"{bojack.head=}")
-    print(F"{bojack.body=}")
-    print(F"{bojack.legs=}")
+    print(f"{bojack.head=}")
+    print(f"{bojack.body=}")
+    print(f"{bojack.legs=}")
     bojack.make_noise()
     bojack.gallop()
 
     print("\nHollyhock the shetland pony")
     hollyhock = ShetlandPony()
-    print(F"{hollyhock.head=}")
-    print(F"{hollyhock.body=}")  # ! raises exception here
-    print(F"{hollyhock.legs=}")
+    print(f"{hollyhock.head=}")
+    print(f"{hollyhock.body=}")  # ! raises exception here
+    print(f"{hollyhock.legs=}")
     hollyhock.make_noise()
     hollyhock.gallop()

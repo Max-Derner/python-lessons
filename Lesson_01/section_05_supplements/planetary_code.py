@@ -10,16 +10,16 @@ class Planet:
 
     def __str__(self):
         return (
-            F"planet '{self.name}'"
-            F" at position ({self.x}, {self.y}, {self.z})"
+            f"planet '{self.name}'"
+            f" at position ({self.x}, {self.y}, {self.z})"
         )
 
     def __repr__(self):
         return (
-            F"Planet(name='{self.name}', "
-            F"x_coord={self.x}, "
-            F"y_coord={self.y}, "
-            F"z_coord={self.z})"
+            f"Planet(name='{self.name}', "
+            f"x_coord={self.x}, "
+            f"y_coord={self.y}, "
+            f"z_coord={self.z})"
         )
 
     def __lt__(self, other):
@@ -28,8 +28,8 @@ class Planet:
         if not isinstance(other, type(self)):
             raise TypeError(
                 "unsupported operand type(s) for <: "
-                F"'Planet' and '{type(other)}'"
-                )
+                f"'Planet' and '{type(other)}'"
+            )
         own_distance_to_origin_squared = (
             self.x ** 2
             + self.y ** 2
@@ -69,11 +69,11 @@ if __name__ == "__main__":
     le_earth = Planet('Le Earth', 17394, 3728943, -3272672)
     not_a_planet = "I'm not a planet!"
 
-    # Here's some of the examples run but just mess around with it for your
-    # own benefit. Maybe even try adding one of the other comparative
-    # dunder methods
-    print(F"{str(earth)=}")
-    print(F"{repr(earth)=}")
-    print(F"{repr(also_earth)=}")
-    print(F"{earth < venus=}")
-    print(F"{earth < not_a_planet=}")
+    # Here's some of the examples run but just mess around with it for
+    # your  own benefit. Maybe even try adding one of the other
+    # comparative dunder methods
+    print(f"{str(earth)=}")
+    print(f"{repr(earth)=}")
+    print(f"{repr(also_earth)=}")
+    print(f"{earth < venus=}")
+    print(f"{earth < not_a_planet=}")

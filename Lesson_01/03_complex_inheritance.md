@@ -91,7 +91,7 @@ Which gives the following output:
 [<class '__main__.Hippogriff'>, <class '__main__.Horse'>, <class '__main__.Eagle'>, <class 'object'>]
 ```
 
-So from this, we can see that our `Hippogriff` class is searched first, then the `Horse` class, the `Eagle` class, and finally the `object` class. The `object` class is just the class that all Python objects are derived from, it's not something you ever have to explicitly set, nor is it something to meditate on so we can just forget about it. But this MRO does give us our answer, since `make_noise` is defined in both the `Horse` and `Eagle` class, and since the MRO reaches `Horse` before `Eagle` we know that `Hippogriff`s "neigh".  
+So from this, we can see that our `Hippogriff` class is searched first, then the `Horse` class, the `Eagle` class, and finally the `object` class. The `object` class is just the class that all Python objects are derived from, it's not something you ever have to explicitly set, nor is it something to meditate on - so we can just forget about it. But this MRO does give us our answer, since `make_noise` is defined in both the `Horse` and `Eagle` class, and since the MRO reaches `Horse` before `Eagle` we know that `Hippogriff`s "neigh".  
 
 Who would've predicted that hippogriffs neigh?
 
@@ -135,7 +135,7 @@ Next thing to do is to look at the parent declaration and inspect the first pare
 Now we're at `G` so we look at it's parents (`D` and `E`), `D` is first so we add that to the end of the MRO and move onto `D`.  
 `D` has parent `B` so add `B` and move onto `B`.  
 `B` has parent `A` so add `A` and move onto `A`.  
-Now we don't have anywhere else to go, so we backtrack to.  
+Now we don't have anywhere else to go, so we backtrack.  
 We go back to `B`, we've explored all of `B`s parents, so we back track further to `D`.  
 Same situation, so we back track to `G`. Now at `G` we have the unexplored parent `E`, so we add `E` to the end of the MRO and move onto it.  
 Now `E` has two parents and the first declared is `B`, but `B` is already in the MRO. Since we can't have parents earlier in the MRO than it's children, we move it to the end of the MRO and move onto it.  

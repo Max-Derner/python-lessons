@@ -14,8 +14,8 @@ class Counter:
         # private attribute
         self._count = starting_value
         # constant attributes
-        self.STARTING_VALUE = starting_value
-        self.LIMIT = limit
+        self.starting_value = starting_value
+        self.limit = limit
 
     def view_count(self) -> int:
         """returns the current count _without_ incrementing it"""
@@ -31,8 +31,8 @@ class Counter:
 
         * securely increment the count
         * safely overflow in case of limits"""
-        if self.LIMIT is not None and self._count == self.LIMIT:
-            self._count = self.STARTING_VALUE
+        if self.limit is not None and self._count == self.limit:
+            self._count = self.starting_value
         self._count += 1
 
 

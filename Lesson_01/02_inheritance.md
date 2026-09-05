@@ -9,8 +9,8 @@
 Let's say we've got the following class:
 ```python
 class Rectangle:
-    NUMBER_OF_EDGES = 4
-    NUMBER_OF_CORNERS = 4
+    number_of_edges = 4
+    number_of_corners = 4
 
     def __init__(self, length: int, width: int):
         self.length = length
@@ -26,16 +26,17 @@ class Rectangle:
         )
 ```
 It defines:
-* four attributes (`NUMBER_OF_EDGES`, `NUMBER_OF_CORNERS`, `length` and `width`)
+* four attributes (`number_of_edges`, `number_of_corners`, `length` and `width`)
 * three methods (`__init__`, `area` and `perimeter`)
 
 To note:
-* `NUMBER_OF_EDGES` and `NUMBER_OF_CORNERS` are defined outside of the `__init__` method (this has an interesting behaviour that we will dig into a little further down)
+* `number_of_edges` and `number_of_corners` are defined outside of the `__init__` method (this has an interesting behaviour that we will dig into a little further down)
 
 Now let's say say we're using `Rectangle` a lot to define squares, so now we want a specialist class just for squares.  
-
 We'll still want methods for the area and the perimeter, and squares will still have the fundamental truth that they have 4 edges and 4 corners.  
-We can inherit from the `Rectangle` class like so:
+
+
+Well we can inherit from the `Rectangle` class like so:
 ```python
 class Square(Rectangle):
 
@@ -49,11 +50,11 @@ It defines:
 * a new `__init__` function
 
 It does inherit:
-* two variables (`NUMBER_OF_EDGES` and `NUMBER_OF_CORNERS` since these were not defined within the overwritten `__init__` method)
+* two variables (`number_of_edges` and `number_of_corners` since these were not defined within the now overwritten `__init__` method)
 * two methods (`area` and `perimeter`)
 
 It **_does not_** inherit:
-* anything declared in the parent's `__init__` method, as we overwrote that method (meaning there's no width, which means `area()` and `perimeter()` are broken)
+* anything declared in the parent's `__init__` method, as we overwrote that method (meaning there's no width - which means `area()` and `perimeter()` are broken because they rely on the width attribute)
 
 ## Let's do that better
 So, of course you could simply declare the `width` attribute yourself but that feels silly and prone to error. Not to mention we'd be constantly trying to keep up with any changes in the parent class.  
@@ -78,7 +79,7 @@ The attributes `length` and `width` - which we defined within a method - are wha
 * not inherited... though the method which declares an instance variable can be inherited and if so will set up the same instance variable for the child class giving the illusion of being inherited
 * unique to each instance (i.e. changing the value in one instance will not change the value in another)
 
-The attributes `NUMBER_OF_EDGES` and `NUMBER_OF_CORNERS` - which were defined outside of any method - are what's called **class variables**, they are:
+The attributes `number_of_edges` and `number_of_corners` - which were defined outside of any method - are what's called **class variables**, they are:
 * inherited
 * not unique to each instance... _mostly_
 

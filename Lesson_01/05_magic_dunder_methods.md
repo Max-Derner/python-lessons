@@ -68,8 +68,8 @@ class Planet:
 
     def __str__(self):
         return (
-            F"planet '{self.name}'"
-            F" at position ({self.x}, {self.y}, {self.z})"
+            f"planet '{self.name}'"
+            f" at position ({self.x}, {self.y}, {self.z})"
         )
 ```
 
@@ -96,10 +96,10 @@ class Planet:
 
     def __repr__(self):
         return (
-            F"Planet(name='{self.name}', "
-            F"x_coord={self.x}, "
-            F"y_coord={self.y}, "
-            F"z_coord={self.z})"
+            f"Planet(name='{self.name}', "
+            f"x_coord={self.x}, "
+            f"y_coord={self.y}, "
+            f"z_coord={self.z})"
         )
 ```
 
@@ -142,7 +142,7 @@ class Planet:
         if not isinstance(other, type(self)):
             raise TypeError(
                 "unsupported operand type(s) for <: "
-                F"'Planet' and '{type(other)}'"
+                f"'Planet' and '{type(other)}'"
                 )
         own_distance_to_origin_squared = (
             self.x ** 2
