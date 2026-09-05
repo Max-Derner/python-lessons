@@ -7,6 +7,6 @@ for item in ['sea', 'cat', 1, {'tres': 'bien'}, {'s', 'e', 't'}]:
             dodgy_function(item)
         )
     except (TypeError, KeyError) as e:
-        print(F"EXCEPTION using item {repr(item)}: {repr(e)}")
+        print(f"EXCEPTION using item {repr(item)}: {repr(e)}")
     except Exception as e:
-        print(F"UNEXPECTED EXCEPTION: {repr(e)}")
+        print(f"UNEXPECTED EXCEPTION: {repr(e)}")

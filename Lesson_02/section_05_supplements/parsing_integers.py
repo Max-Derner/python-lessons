@@ -6,7 +6,7 @@ def parse_integer(txt: str) -> int | None:
     directory you are running the code from"""
     with open("logs.txt", mode='a') as logs:
         logs.write("===============================\n")
-        logs.write(F"Beginning to parse '{txt}'\n")
+        logs.write(f"Beginning to parse '{txt}'\n")
         try:
             num = int(txt)
         except ValueError:
@@ -15,7 +15,7 @@ def parse_integer(txt: str) -> int | None:
             logs.write("SUCCESS\n")
             return num
         finally:
-            logs.write(F"Finished parse of '{txt}'\n")
+            logs.write(f"Finished parse of '{txt}'\n")
 
 
 if __name__ == "__main__":
@@ -30,5 +30,5 @@ if __name__ == "__main__":
         returned = parse_integer(item)
         if returned is not None:
             outputs.append(returned)
-    print(F"Tried: {len(samples)} inputs")
-    print(F"{len(outputs)} successful")
+    print(f"Tried: {len(samples)} inputs")
+    print(f"{len(outputs)} successful")

@@ -7,7 +7,7 @@ def get_value_bad(dictionary: dict, key: Any) -> Any:
     try:
         return dictionary[key]
     except Exception as e:
-        print(F"Whooops! Exception caught: {e}")
+        print(f"Whooops! Exception caught: {e}")
         return None
 
 
@@ -17,7 +17,7 @@ def get_value_good(dictionary: dict, key: Any) -> Any:
     try:
         return dictionary[key]
     except Exception as e:
-        print(F"Whooops! Exception caught: {repr(e)}")
+        print(f"Whooops! Exception caught: {repr(e)}")
         return None
 
 

@@ -7,7 +7,7 @@ def parse_integer(txt: str) -> int | None:
     directory you are running the code from"""
     with open("logs.txt", mode='a') as logs:
         logs.write("===============================\n")
-        logs.write(F"Beginning to parse '{txt}'\n")
+        logs.write(f"Beginning to parse '{txt}'\n")
         try:
             # smallest part in try block
             num = int(txt)
@@ -24,14 +24,14 @@ def parse_integer(txt: str) -> int | None:
         finally:
             # declare finished, this will actually intercept the return
             #  statement above
-            logs.write(F"Finished parse of '{txt}'\n")
+            logs.write(f"Finished parse of '{txt}'\n")
 
 
 if __name__ == "__main__":
     print("Logs will go to 'logs.txt'")
     with open("logs.txt", mode='w') as logs:
-        logs.write(F"Starting program at {datetime.now()}\n")
+        logs.write(f"Starting program at {datetime.now()}\n")
     for item in ['1', '2', '3', 'four']:
-        print(F"Trying to parse {repr(item)}")
+        print(f"Trying to parse {repr(item)}")
         returned = parse_integer(item)
-        print(F"Got {repr(returned)}")
+        print(f"Got {repr(returned)}")

@@ -12,10 +12,10 @@ if __name__ == "__main__":
         result = operate(numerator, denominator)
     except Exception as e:
         exception_writer(e)
-        print(F"Whoops! Thrown a {repr(e)}")
+        print(f"Whoops! Thrown a {repr(e)}")
     else:
         print("All ok!")
-        print(F"Your result is: {result}")
+        print(f"Your result is: {result}")
     finally:
         print("All done!")
         exit(0)

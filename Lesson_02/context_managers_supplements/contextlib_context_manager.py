@@ -20,10 +20,10 @@ def my_context_manager(transmission_period: timedelta = timedelta(weeks=8)):
         yield data_store
     # __exit__ style code here
     except KeyboardInterrupt as e:
-        print(F"An issue has arisen! {type(e)}")
+        print(f"An issue has arisen! {type(e)}")
         print("Conducting emergency transmission of remaining data...")
     except Exception as e:
-        print(F"An issue has arisen! {type(e)}")
+        print(f"An issue has arisen! {type(e)}")
         print("Conducting emergency transmission of remaining data...")
         raise
     else:

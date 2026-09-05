@@ -7,4 +7,4 @@ for item in ['sea', 'cat', 1, {'tres': 'bien'}]:
             dodgy_function(item)
         )
     except Exception as e:
-        print(F"EXCEPTION using item {repr(item)}: {repr(e)}")
+        print(f"EXCEPTION using item {repr(item)}: {repr(e)}")

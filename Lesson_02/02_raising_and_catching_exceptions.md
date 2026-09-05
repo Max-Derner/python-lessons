@@ -30,9 +30,9 @@ def positive_number_gate(item):
         isinstance(item, int)
         or isinstance(item, float)
     ):
-        raise TypeError(F"item: {repr(item)} is not an int or float")
+        raise TypeError(f"item: {repr(item)} is not an int or float")
     if item < 0:
-        raise ValueError(F"item: {repr(item)} is not a positive number")
+        raise ValueError(f"item: {repr(item)} is not a positive number")
 ```
 Here we're guarding whether the correct type is being used, and whether it is an appropriate value. You can see the [code in `number_gate.py`](./raising_and_catching_supplements/number_gate.py)
 
@@ -105,17 +105,17 @@ nums_to_sum = [1, 10, 100, "1", 42, 999]
 with open("logs.txt", mode='w') as logs:  # get our log file going
     try:
         # do a bunch of stuff
-        logs.write(F"Starting work at {datetime.now()}\n")
+        logs.write(f"Starting work at {datetime.now()}\n")
         a = 0
         nums_summed = 0
         for num in nums_to_sum:
-            logs.write(F"Adding {num=}, {nums_summed=}\n")
+            logs.write(f"Adding {num=}, {nums_summed=}\n")
             a += num
             nums_summed += 1
         logs.write("Finished work successfully\n")
     except Exception:
         # if anything goes wrong, write that to file
-        logs.write(F"Failed work after summing {nums_summed} nums\n")
+        logs.write(f"Failed work after summing {nums_summed} nums\n")
         raise  # get that exception back out in the wild
 ```
 [code in `re_raise.py`](./raising_and_catching_supplements/re_raise.py)
@@ -133,7 +133,7 @@ Let's go with a different example for now though...
 
     for key in ['a', 'b', 'c']:
         try:
-            print(F"{key} is for {some_dict[key]}")
+            print(f"{key} is for {some_dict[key]}")
         except Exception as e:  # aliasing exception here
             print("EXCEPTION!")
             print(e)  # printing it here
@@ -163,17 +163,17 @@ nums_to_sum = [1, 10, 100, "1", 42, 999]
 with open("logs.txt", mode='w') as logs:  # get our log file going
     try:
         # do a bunch of stuff
-        logs.write(F"Starting work at {datetime.now()}\n")
+        logs.write(f"Starting work at {datetime.now()}\n")
         a = 0
         nums_summed = 0
         for num in nums_to_sum:
-            logs.write(F"Adding {num=}, {nums_summed=}\n")
+            logs.write(f"Adding {num=}, {nums_summed=}\n")
             a += num
             nums_summed += 1
         logs.write("Finished work successfully\n")
     except Exception as e:
         # if anything goes wrong, write that to file
-        logs.write(F"Failed work after summing {nums_summed} nums\n")
+        logs.write(f"Failed work after summing {nums_summed} nums\n")
         logs.write("EXCEPTION:\n")
         logs.write(format_exception(e))
 

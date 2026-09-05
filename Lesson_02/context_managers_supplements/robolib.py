@@ -56,7 +56,7 @@ class DataCollection:
             ' ====================  \n'
         )
         for time, message in self.data:
-            output += F"[{time}] {message}\n"
+            output += f"[{time}] {message}\n"
         output += (
             '   ====================  '
             'TRANSMISSION END'

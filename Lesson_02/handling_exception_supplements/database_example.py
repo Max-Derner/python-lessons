@@ -25,7 +25,7 @@ def put_record(data):
     Not all fields required, but all fields must conform to expected
     datatype."""
 
-    exp = PutDataError(F"Failed to put data: {data}")
+    exp = PutDataError(f"Failed to put data: {data}")
 
     try:
         validate_data(data)
@@ -42,7 +42,7 @@ def put_record(data):
     except DatabaseError as e:
         raise exp from e
 
-    print(F"{response=}")
+    print(f"{response=}")
 
 
 if __name__ == "__main__":
@@ -61,7 +61,7 @@ if __name__ == "__main__":
 
     def display_data(data: list):
         for i, d in enumerate(data):
-            print(F"{i}: {d}")
+            print(f"{i}: {d}")
 
     selection = None
     while selection != 'e':

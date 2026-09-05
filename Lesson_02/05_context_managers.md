@@ -111,7 +111,7 @@ class MyContextManager:
         # 'traceback' to determine the error and whether an error has
         # happened to suppress and whether to reraise the exception
         if exc_type is not None:
-            print(F"An issue has arisen! {exc_type}")
+            print(f"An issue has arisen! {exc_type}")
             print("Conducting emergency transmission of remaining data...")
         else:
             print("Sending remaining data...")
@@ -186,10 +186,10 @@ def my_context_manager(transmission_period: timedelta = timedelta(weeks=8)):
         yield data_store
     # __exit__ style code here
     except KeyboardInterrupt as e:
-        print(F"An issue has arisen! {type(e)}")
+        print(f"An issue has arisen! {type(e)}")
         print("Conducting emergency transmission of remaining data...")
     except Exception as e:
-        print(F"An issue has arisen! {type(e)}")
+        print(f"An issue has arisen! {type(e)}")
         print("Conducting emergency transmission of remaining data...")
         raise
     else:
@@ -221,10 +221,10 @@ Now we need to define the behaviour of our error handling which can be a bit awk
 ```python
     # __exit__ style code here
     except KeyboardInterrupt as e:
-        print(F"An issue has arisen! {type(e)}")
+        print(f"An issue has arisen! {type(e)}")
         print("Conducting emergency transmission of remaining data...")
     except Exception as e:
-        print(F"An issue has arisen! {type(e)}")
+        print(f"An issue has arisen! {type(e)}")
         print("Conducting emergency transmission of remaining data...")
         raise
     else:

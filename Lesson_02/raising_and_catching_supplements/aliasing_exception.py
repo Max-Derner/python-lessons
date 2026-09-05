@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
     for key in ['a', 'b', 'c']:
         try:
-            print(F"{key} is for {some_dict[key]}")
+            print(f"{key} is for {some_dict[key]}")
         except Exception as e:
             print("EXCEPTION!")
             print(e)

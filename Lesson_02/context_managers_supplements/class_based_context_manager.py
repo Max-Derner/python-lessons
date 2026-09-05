@@ -26,7 +26,7 @@ class MyContextManager:
         # 'traceback' to determine the error and whether an error has
         # happened to suppress and whether to reraise the exception
         if exc_type is not None:
-            print(F"An issue has arisen! {exc_type}")
+            print(f"An issue has arisen! {exc_type}")
             print("Conducting emergency transmission of remaining data...")
         else:
             print("Sending remaining data...")

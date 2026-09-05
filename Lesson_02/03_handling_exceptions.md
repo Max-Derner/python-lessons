@@ -58,7 +58,7 @@ def parse_integer(txt: str) -> int | None:
     directory you are running the code from"""
     with open("logs.txt", mode='a') as logs:
         logs.write("===============================\n")
-        logs.write(F"Beginning to parse '{txt}'\n")
+        logs.write(f"Beginning to parse '{txt}'\n")
         try:
             # smallest part in try block
             num = int(txt)
@@ -75,7 +75,7 @@ def parse_integer(txt: str) -> int | None:
         finally:
             # declare finished, this will actually intercept the return
             #  statement above
-            logs.write(F"Finished parse of '{txt}'\n")
+            logs.write(f"Finished parse of '{txt}'\n")
 ```
 [Code here](./handling_exception_supplements/integer_parse.py)
 
@@ -177,7 +177,7 @@ def put_record(data):
     Not all fields required, but all fields must conform to expected
     datatype."""
 
-    exp = PutDataError(F"Failed to put data: {data}")
+    exp = PutDataError(f"Failed to put data: {data}")
 
     try:
         validate_data(data)
@@ -194,7 +194,7 @@ def put_record(data):
     except DatabaseError as e:
         raise exp from e
 
-    print(F"{response=}")
+    print(f"{response=}")
 ```
 So you can see here, we'll always send out a `PutDataError` if things fail, but upon inspection you will be able to gleam the underlying issue as it will be named the "direct cause" of the `PutDataError`. This makes catching exceptions raised out of our `put_record` really simple and easy whilst not making it difficult to pin-point the precise issue   
 

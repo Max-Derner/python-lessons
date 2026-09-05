@@ -11,7 +11,7 @@ def validate_data(data: dict):
         raise InvalidDataError('data is not dict')
     errors = []
     if not isinstance((id := data.get('id')), str):
-        errors.append(F"id should be type string got {type(id)}")
+        errors.append(f"id should be type string got {type(id)}")
     else:
         id_pattern = (
             r'[0-9a-f]{8}'
@@ -23,11 +23,11 @@ def validate_data(data: dict):
             id,
         )
         if not match:
-            errors.append(F"id did not match the RegEx {id_pattern}")
+            errors.append(f"id did not match the RegEx {id_pattern}")
     if not isinstance((name := data.get('name')), str):
-        errors.append(F"name should be type string got {type(name)}")
+        errors.append(f"name should be type string got {type(name)}")
     if not isinstance((phone_no := data.get('phone_no')), str):
-        errors.append(F"phone_no should be type string got {type(phone_no)}")
+        errors.append(f"phone_no should be type string got {type(phone_no)}")
     else:
         phone_no_pattern = r'\+\d{12}'
         match = re.match(
@@ -35,7 +35,7 @@ def validate_data(data: dict):
             phone_no,
         )
         if not match:
-            errors.append(F"phone_no did not match the RegEx {phone_no_pattern}")
+            errors.append(f"phone_no did not match the RegEx {phone_no_pattern}")
     if len(errors) != 0:
         raise InvalidDataError(
             ' | '.join(errors)
@@ -81,7 +81,7 @@ def put_data(session: str, data: dict):
     id = data.get('id')
     if database_records.get(id):
         raise DatabaseError(
-            F"record with id '{id}' already exists in database"
+            f"record with id '{id}' already exists in database"
         )
     else:
         database_records[id] = data
