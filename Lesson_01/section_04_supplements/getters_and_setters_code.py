@@ -11,7 +11,8 @@ class GettingAndSettingClass:
 
     @my_var.setter
     def my_var(self, value):
-        # isinstance() is a built-in function: https://docs.python.org/3/library/functions.html#isinstance
+        # isinstance() is a built-in function:
+        # https://docs.python.org/3/library/functions.html#isinstance
         if isinstance(value, int) and value >= 0:
             self._my_var = value
         else:

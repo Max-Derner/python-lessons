@@ -17,7 +17,7 @@
 
 So, raising exceptions...
 
-Firstly, you might know this process as "_throwing an error_" but in Python parlance it's actually "_raising an exception_". No one really cares though, so call it what you want. Anyway, it's all nice and easy to do, just use the `raise` keyword and pass a little message into the initialiser, like so:
+Firstly, you might know this process as "_throwing an error_" but in Python parlance it's "_raising an exception_". No one really cares though, so call it what you want. Anyway it's all nice and easy to do, just use the `raise` keyword and pass a little message into the initialiser of your chosen exception, like so:
 
 ```python
 raise NotImplementedError("You'll need to actually implement this")
@@ -35,6 +35,8 @@ def positive_number_gate(item):
         raise ValueError(f"item: {repr(item)} is not a positive number")
 ```
 Here we're guarding whether the correct type is being used, and whether it is an appropriate value. You can see the [code in `number_gate.py`](./raising_and_catching_supplements/number_gate.py)
+
+**N.B.** This is not considered to be Pythonic code. Python prioritises readability, so it is the standard to _"ask for forgiveness instead of permission"_. It can be quite easy to check and double and triple check your permissions which makes observing the function of the code difficult since most of the code is just checking that you can do the thing you want to do. The Pythonic way is to just try and do the thing and deal with the consequences.
 
 # Catching Exceptions
 
@@ -56,12 +58,11 @@ Very boring, not a lot you can do with that **and** it's against PEP8 standards 
 ```python
 except Exception:
 ```
-This line will not only catch the `Exception` exception, but also catch any exception which inherits from `Exception` (which is all of the none system exiting exceptions as we heard earlier)
+This line will not only catch the `Exception` exception, but also catch any exception which inherits from `Exception` (which is all of the none system exiting exceptions, but you remember that from one page ago).
 
 ## Specific catch
 
-So, the code in the above `try` block throws a specific error - the `TypeError`. Since we are now anticipating a specific error, we can catch only that error letting anything else bubble up and halt the script. Let's see that in action:
-
+So, the code in the above `try` block throws a specific error - the `TypeError`. Since we are now anticipating a specific error, we can catch only that error letting anything else bubble up and halt the script.
 ```python
 try:
     positive_number_gate("I ain't no number!")

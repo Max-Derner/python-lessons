@@ -25,22 +25,12 @@ def put_record(data):
     Not all fields required, but all fields must conform to expected
     datatype."""
 
-    exp = PutDataError(f"Failed to put data: {data}")
-
     try:
         validate_data(data)
-    except InvalidDataError as e:
-        raise exp from e
-
-    try:
         session = start_database_session()
-    except ClientError as e:
-        raise exp from e
-
-    try:
         response = put_data(session, data)
-    except DatabaseError as e:
-        raise exp from e
+    except (ClientError, InvalidDataError, DatabaseError) as e:
+        raise PutDataError(f"Failed to put data: {data}") from e
 
     print(f"{response=}")
 

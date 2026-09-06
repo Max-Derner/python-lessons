@@ -26,7 +26,7 @@ What you are most likely to encounter are:
 
 # Origin
 
-Almost all exceptions have a common ancestor, the plain `Exception` class. Those that don't inherit from the `Exception` class are system exiting exceptions and that comes down to the way in which you can catch exceptions in general, which we'll get to in a bit.
+Almost all exceptions have a common ancestor, the plain `Exception` class. Those that don't inherit from the `Exception` class are system exiting exceptions that are supposed to terminate the program - such as the `KeyboardInterrupt` exception.
 
 You can both raise and catch instances of `Exception` but you should only catch it with great caution and you should never raise it.
 

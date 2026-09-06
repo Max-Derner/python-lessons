@@ -32,8 +32,7 @@ class MyContextManager:
             print("Sending remaining data...")
         transmit_data(self.data_store.format_for_transmission())
         print("sent")
-        # return a boolean to indicate whether or not you are
-        # suppressing the exception
+        # return True to suppress the exception and False to reraise it
         return True if exc_type == KeyboardInterrupt else False
 
 

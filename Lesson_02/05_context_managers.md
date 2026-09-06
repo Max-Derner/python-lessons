@@ -6,8 +6,9 @@
  \____\___/|_| |_|\__\___/_/\_\\__| |_|  |_|\__,_|_| |_|\__,_|\__, |\___|_|  |___/
                                                               |___/
 ```
-Last thing now and then we'll finish up for this lesson
+Last thing now and then we'll finish up for this lesson. Take a breath, get a cup of tea, this is the last sprint.
 
+Now then...  
 You have seen a context manager already, they are a function or class that you interact with using the `with` keyword. You know them from file handling:
 ```python
 with open("some_file.txt", mode='r') as file_stream:
@@ -18,9 +19,8 @@ In this instance `open()` is your context manager.
 # What and why?
 
 Right, well context managers are here to DRY up use of `try/finally` statements. In the same way functions are here to prevent you writing the same piece of logic over and over again, context manages are here to prevent you writing the same piece of error handling over and over again.  
-By this point you may have come to understand that Pythons exception handling is fairly rich and powerful (and not in the oligarch kinda way). This comes down to the way we use exceptions in Python. In Python you basically raise an exception anytime you fail to do something. This way if you ask a piece of code to do something and it can't, it will force you to face that fact and now you've got a choice; either cope by using an except block, or panic by letting it bubble up (maybe someone further up the line can handle it anyway). With this level of exception use, it stands to reason that you might have certain patterns emerging around exception handling. So, let's dream up an example of the `try/finally` pattern...
 
-So, let's say we are programming some sort of robot that gathers environmental data and transmits that data back to base once every 8 weeks. If something were to go wrong with our code at any point, we'd want to a) transmit what data we do have and b) call someone to repair us. So, without the context manager that would look something like this:
+So, let's say we are programming some sort of robot that gathers environmental data and transmits that data back to base once every 8 weeks. If something were to go wrong with our code at any point, we'd want to a) transmit what data we do have and b) call someone to repair us. So, without and exception handling that would look something like this:
 
 ```python
 def main():
@@ -117,8 +117,7 @@ class MyContextManager:
             print("Sending remaining data...")
         transmit_data(self.data_store.format_for_transmission())
         print("sent")
-        # return a boolean to indicate whether or not you are
-        # suppressing the exception
+        # return True to suppress the exception and False to reraise it
         return True if exc_type == KeyboardInterrupt else False
 
 
@@ -162,7 +161,7 @@ Then the `__enter__()` method is what defines the context managers behaviour whe
     ) as data_store:
 ```
 Then the `__exit__()` method is what defines the way we exit the `with` block, it also defines any optional error handling. This method does whatever you would normally do in the finally block plus deciding which exceptions to suppress. In our method we've decided to suppress any `KeyboardInterrupt` exceptions but anything else will bubble up and halt the system.  
-For clarity, suppressing an exception with your context manager still means the code exits the `wih` block. Ideally the way you would suppress exceptions is that whatever you return from the `__enter__` method would have a custom exception that gets caught by the `__exit__` method, this way we're saying that "If the resource provided by the context manager runs into a problem, then we can shut it down gracefully".
+For clarity, suppressing an exception with your context manager still means the code exits the `with` block. Ideally the way you would suppress exceptions is that whatever you return from the `__enter__` method would have a custom exception that gets caught by the `__exit__` method, this way we're saying that "If the resource provided by the context manager runs into a problem, then we can shut it down gracefully".
 
 
 Hopefully, you can see why I quite like the class based context manager. You have 3 separate methods which all have very clear and distinct roles, and there is no need anything too complex. Let's compare this to the function based context manager.

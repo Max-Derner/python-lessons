@@ -13,6 +13,7 @@
                    |_|      
 ```
 
+# Simple create
 Creating custom exceptions is easy-peasy. All exceptions are just objects, so you simply need to create a new class and inherit from the correct place.
 
 You will typically just do it like this:
@@ -28,6 +29,37 @@ class MyCustomError(Exception):
     """A custom exception which is raised when thromdiculating the
     eldenburge fails"""
 ```
+
+
+# A well structured family
+
+You can actually inherit from any exception you like, so you could - for example - subclass the `ValueError` exception. If you wanted to you could create a whole family of exceptions of your own. Like this 3 generations of [retro-encabulator](https://www.youtube.com/watch?v=RXJKdh1KZ0w) exceptions.
+
+```python
+class RetroEncabulatorError(Exception):
+    """Retro Encabulator failure"""
+
+
+class UnilateralPhaseDetractorError(RetroEncabulatorError):
+    """Failure to unilaterally detract the phase"""
+
+
+class CardinalGrammeterSyncError(RetroEncabulatorError):
+    """Failure to synchronise the cardinal gram meters"""
+
+
+class ModialInteractionError(RetroEncabulatorError):
+    """Modial interaction failed"""
+
+
+class MagnetoReluctanceError(ModialInteractionError):
+    """Magneto not reluctant"""
+
+
+class CapacitiveDirectance(ModialInteractionError):
+    """Capacitive indirectance occured"""
+```
+
 
 Well that was easy...
 

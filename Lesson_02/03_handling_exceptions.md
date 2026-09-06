@@ -13,31 +13,11 @@
                    |_|
 ```
 
-# Grappling with the exception
-
-Say you've got some function that writes exceptions out to file, like this:
-```python
-def exception_writer(e: Exception):
-    with open('exceptions.txt', mode='a') as f:
-        f.write(repr(e))
-```
-The question stands, how on Earth do you actually get the exception in order to pass it to this function.  
-The answer is "with great ease". You simply add to the end of you `except` statement `as e` and then access the variable `e` which is the exception you're handling. You can call it something else instead of `e` but `e` is the tradition when writing Python.
-
-Example:
-```python
-try:
-    'me'/2
-except Exception as e:
-    exception_writer(e)
-    raise
-```
-
 # The side dishes no one talks about
 So far we've seen `try` and `except` but these can be paired with `else` and/or `finally` too:
 ```python
 try:
-    # something
+    # something that might raise an exception
 except:
     # handle exceptions
 else:
@@ -49,7 +29,12 @@ finally:
 ```
 Seems mostly reasonable, but let's dig into it a bit more and why you might decide to use the various aspects of exception handling.
 
-So, say you're parsing some text but you're still writing logs in the worst way possible by writing to a file rather than using the [`logging` library](https://docs.python.org/3/library/logging.html). You might want log something to say you're starting to parse the text, log something based on success or failure, and you may wish to always declare when you have finished. Sounds a little complex to squeeze all of that in, but it can be really nice and terse code:
+So, say you're parsing some text but you're still writing logs by writing to a file without using the [`logging` library](https://docs.python.org/3/library/logging.html). You might want to:
+1. log something to say you're starting to parse the text  
+1. log something based on success or failure  
+1. log something to always declare when you have finished.  
+
+Sounds a little complex to squeeze all of that in, but it can be really nice and terse code:
 
 ```python
 def parse_integer(txt: str) -> int | None:
@@ -84,7 +69,7 @@ This code looks like it shouldn't ever actually write "Finished parse of..." but
 
 # Placing the blame
 Exceptions actually have a couple of secret attributes `__cause__` and `__context__`, and both attributes can hold extra exceptions!  
-Let's look closer. Say you have a bit of code that raises an exception and you're trying to handle it but you get all messed up and end up raising another exception. The question then comes up "Which exception do you want to see in the traceback?", the answer that Python gives is **both**.  
+Say you have a bit of code that raises an exception and you're trying to handle it but you get all messed up and end up raising another exception. The question then comes up "Which exception do you want to see in the traceback?", the answer that Python gives is **both**.  
 Take the following code for example:
 ```python
 try:
@@ -130,11 +115,10 @@ def custom_sum(nums: list[int | str]) -> int | None:
 ```
 [find code here](./handling_exception_supplements/from_demo.py)  
 
-With the following main guard clause:   
+With the following code:   
 ```python
-if __name__ == "__main__":
-    nums = [1, 2, 3, 4, 'five', 6]
-    custom_sum(nums)
+nums = [1, 2, 3, 4, 'five', 6]
+custom_sum(nums)
 ```
 
 You get the following stacktrace:  
@@ -177,22 +161,12 @@ def put_record(data):
     Not all fields required, but all fields must conform to expected
     datatype."""
 
-    exp = PutDataError(f"Failed to put data: {data}")
-
     try:
         validate_data(data)
-    except InvalidDataError as e:
-        raise exp from e
-
-    try:
         session = start_database_session()
-    except ClientError as e:
-        raise exp from e
-
-    try:
         response = put_data(session, data)
-    except DatabaseError as e:
-        raise exp from e
+    except (ClientError, InvalidDataError, DatabaseError) as e:
+        raise PutDataError(f"Failed to put data: {data}") from e
 
     print(f"{response=}")
 ```
